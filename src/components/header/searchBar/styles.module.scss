@@ -1,0 +1,13 @@
+.search {
+    position: relative;
+    z-index: 1000;
+
+    input {
+        border: 2px solid transparent;
+        background: $background-graphite;
+        color: $white-color;
+        outline: none;
+        transition: 0.3s;
+    }
+
+}

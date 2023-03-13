@@ -1,0 +1,16 @@
+.user_container {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        background: $primary-color;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    span {
+        color: $white-color;
+    }
+}
