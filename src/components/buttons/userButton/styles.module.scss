@@ -1,6 +1,13 @@
+@import '../../../styles/variables.scss';
+
 .user_container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 500;
+
 
     button {
         background: $primary-color;
@@ -8,6 +15,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 56px;
+        height: 56px;
+        padding: 20px;
+        border: 0;
+        margin-right: 10px;
+        color: $white-color;
+        font-size: 16px;
+        font-weight: 500;
     }
 
     span {

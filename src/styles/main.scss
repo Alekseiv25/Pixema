@@ -1,6 +1,6 @@
-@import "null";
-@import "variables";
+@import "./null.scss";
+@import "./variables.scss";
 
-body {
+* {
     font-family: "Exo 2";
 }

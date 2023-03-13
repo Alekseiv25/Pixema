@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .burger_button {
     background: $primary-color;
     border-radius: 10px;
@@ -5,22 +7,25 @@
     cursor: pointer;
     position: relative;
     z-index: 1000;
-    display: flex;
+    border: 0;
+    width: 56px;
+    height: 56px;
+    margin-right: 32px;
 
     span {
-        color: $white-color;
+        background-color: $white-color;
         position: absolute;
-        width: 14px;
-        height: 4px;
+        width: 24px;
+        height: 2px;
         transition: all 0.3s;
         transform: translate(-50%, -50%);
 
         &:nth-of-type(2) {
-            top: calc(50% - 10px)
+            top: calc(50% - 7px)
         }
 
         &:nth-of-type(3) {
-            top: calc(50% + 10px)
+            top: calc(50% + 7px)
         }
     }
 }
