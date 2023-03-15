@@ -1,8 +1,13 @@
 import styles from './styles.module.scss'
 
-const Submit = () => {
+interface IProps {
+    value: string
+}
+const Submit = (props: IProps) => {
+const {value} = props
+
     return (
-        <input type="submit" value="Войти" className={styles.submit} />
+        <input type="submit" value={value} className={styles.submit} />
     )
 }
 

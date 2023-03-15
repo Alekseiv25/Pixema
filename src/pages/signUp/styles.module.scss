@@ -20,20 +20,6 @@
         margin-bottom: 40px;
     }
 
-    .forgot_link {
-        color: $secondary-color;
-        font-size: 14px;
-        font-weight: 500;
-        margin-top: 15px;
-        margin-bottom: 40px;
-        text-decoration: none;
-        transition: 0.3s;
-
-        &:hover {
-            color: $light-color
-        }
-    }
-
     p {
         color: $secondary-color;
         display: flex;

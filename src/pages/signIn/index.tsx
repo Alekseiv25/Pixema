@@ -7,7 +7,7 @@ import styles from './styles.module.scss'
 const SignIn = () => {
     return (
         <>
-            <LogoButton className={styles.logo_button}/>
+            <LogoButton className={styles.logo_button} />
             <form className={styles.form_container}>
                 <h2>Авторизация</h2>
                 <Input
@@ -23,7 +23,7 @@ const SignIn = () => {
                     name={'password'}
                 />
                 <NavLink className={styles.forgot_link} to={'/reset'}>Забыли пароль?</NavLink>
-                <Submit />
+                <Submit value={'Войти'} />
                 <p>Нет аккаунта? <NavLink to={'/signup'}>Зарегестрироваться</NavLink></p>
             </form>
         </>
