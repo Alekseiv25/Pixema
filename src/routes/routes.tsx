@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Layout from "../pages/layout/Layout"
 import Main from "../pages/main"
+import NewPassword from "../pages/newPassword"
 import ResetPassword from "../pages/resetPassword"
 import SignIn from "../pages/signIn"
 import SignUp from "../pages/signUp"
@@ -12,6 +13,7 @@ const Router = () => {
                 <Route path='/signin' element={<SignIn />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/reset' element={<ResetPassword />} />
+                <Route path='/newpassword' element={<NewPassword />} />
                 <Route index element={<Main />} />
             </Route>
         </Routes>

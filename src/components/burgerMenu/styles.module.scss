@@ -29,6 +29,7 @@
         left: 70px;
     }
 
+
     a {
         display: flex;
         height: 40px;
@@ -57,7 +58,17 @@
             transition: 0.3s;
         }
     }
+
+    .active_link {
+        path {
+            fill: $primary-color;
+        }
+        p {
+            color: $primary-color;
+        }
+    }
 }
+
 .active {
     opacity: 1;
 }
