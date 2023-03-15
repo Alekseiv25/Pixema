@@ -12,7 +12,8 @@ const Header = () => {
     return (
         <section className={
             location.pathname === '/signin' ||
-                location.pathname === '/signup' ? `${styles.disable}` : `${styles.active}`}>
+                location.pathname === '/signup' ||
+                location.pathname === '/reset' ? `${styles.disable}` : `${styles.active}`}>
             <header className={styles.header}>
                 <div className={styles.left_container}>
                     <BurgerButton />

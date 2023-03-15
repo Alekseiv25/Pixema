@@ -7,7 +7,8 @@ const Layout = () => {
     return (
         <div className={
             location.pathname === '/signin' ||
-                location.pathname === '/signup' ? 'bg-app app' : 'app'}>
+                location.pathname === '/signup' ||
+                location.pathname === '/reset' ? 'bg-app app' : 'app'}>
             <Header />
             <main className="wrapper">
                 <Outlet />
