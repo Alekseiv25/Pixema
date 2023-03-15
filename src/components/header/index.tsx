@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom'
 import BurgerMenu from '../burgerMenu'
 import BurgerButton from '../buttons/burgerButton'
 import LogoButton from '../buttons/logoButton'
@@ -6,8 +7,10 @@ import SearchBar from './searchBar'
 import styles from './styles.module.scss'
 
 const Header = () => {
+    const location = useLocation()
+
     return (
-        <>
+        <section className={location.pathname === '/signin' || location.pathname === '/signup' ? `${styles.disable}` : `${styles.active}`}>
             <header className={styles.header}>
                 <div className={styles.left_container}>
                     <BurgerButton />
@@ -17,7 +20,7 @@ const Header = () => {
                 <UserButton />
             </header>
             <BurgerMenu />
-        </>
+        </section>
     )
 }
 

@@ -2,7 +2,7 @@ import styles from './styles.module.scss'
 
 interface IInputProps {
     type: string
-    label?: string
+    label: string
     placeholder: string
     name: string
     value?: string
@@ -15,16 +15,18 @@ const Input = (props: IInputProps) => {
         label,
         placeholder,
         name,
-        value,
-        className } = props
+    } = props
 
     return (
-        <input
-            type={type}
-            placeholder={placeholder}
-            name={name}
-            className={className}
-        />
+        <div className={styles.input_container}>
+            <span className={styles.label}>{label}</span>
+            <input
+                type={type}
+                placeholder={placeholder}
+                name={name}
+                className={styles.input}
+            />
+        </div>
     )
 }
 
