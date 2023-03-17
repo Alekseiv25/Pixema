@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .settings_container {
+
     max-width: 1310px;
     margin: 0 auto;
     margin-top: 50px;
@@ -16,6 +17,7 @@
     }
 
     .form_container {
+        transition: 0.5s all;
         background: $background-dark;
         padding: 40px;
         display: flex;
@@ -25,6 +27,7 @@
     }
 
     .theme_container {
+        transition: 0.5s all;
         align-items: center;
         background: $background-dark;
         padding: 40px 24px;
@@ -71,7 +74,7 @@
                 right: 1px;
                 background: $light-color;
                 border-radius: 10px;
-                transition: 0.3s ease;
+                transition: 0.3s;
             }
 
             &:after {
@@ -129,6 +132,22 @@
             width: 100%;
         }
     }
+}
+
+.light {
 
 
+    h2 {
+        color: $background-dark
+    }
+
+    .form_container,
+    .theme_container {
+
+        background: $light-color;
+
+        p {
+            color: $background-dark
+        }
+    }
 }

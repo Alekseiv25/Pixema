@@ -1,15 +1,24 @@
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Input from '../../components/input'
 import Submit from '../../components/submit'
+import { ThemeColorAction } from '../../store/reducers/themeReducer/actions'
+import { changeThemeSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 const Settings = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const theme = useSelector(changeThemeSelector)
+    const toggleTheme = () => {
+        dispatch(ThemeColorAction())
+    }
 
     return (
         <>
-            <div className={styles.settings_container}>
-                <h2>Профиль</h2>
+            <div className={!theme  ? `${styles.settings_container}` : `${styles.settings_container} ${styles.light}`}>
+                <h2 >Профиль</h2>
                 <form className={styles.form_container}>
                     <div className={styles.input_container}>
                         <Input
@@ -64,8 +73,8 @@ const Settings = () => {
                             id='toggle'
                             className={`${styles.theme_toggle} ${styles.theme_toggle_round}`}
                             type='checkbox'
-                            checked={undefined}
-                            onChange={() => { }}
+                            checked={!theme}
+                            onChange={toggleTheme}
                         />
                         <label htmlFor="toggle"></label>
                     </div>

@@ -20,7 +20,7 @@ const BurgerMenu = () => {
             {
                 pathnames.map((path) => (
                     <Link
-                        className={location.pathname === '/' && path.value === 'home' ? `${styles.active_link}` : ''}
+                        className={location.pathname === `/${path.value}` ? `${styles.active_link}` : ''}
                         key={path.value}
                         to={path.value === 'home' ? '/' : `${path.value}`}
                     >

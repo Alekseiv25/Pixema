@@ -1,14 +1,19 @@
 .app {
+    transition: 0.5s all;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: black;
+    background-color: black !important;
 }
 
 .bg-app {
-    background: black no-repeat center url(./assets/backgrounds/main_background.png);
+    background:  no-repeat center url(./assets/backgrounds/main_background.png);
 }
 
 .wrapper {
     padding: 0 20px;
+}
+
+.light {
+    background: white !important;
 }
