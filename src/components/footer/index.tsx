@@ -1,7 +1,9 @@
+import styles from './styles.module.scss'
+
 const Footer = () => {
     return (
-        <footer>
-
+        <footer className={styles.footer}>
+            <p>© All Rights Reserved</p>
         </footer>
     )
 }
