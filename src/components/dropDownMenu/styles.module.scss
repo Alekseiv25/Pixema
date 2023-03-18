@@ -1,0 +1,21 @@
+.dropdown_container {
+    background-color: #242426;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
+    display: flex;
+    flex-direction: column;
+    height: 0;
+    justify-content: center;
+    margin-top: 24px;
+    overflow: hidden;
+    position: relative;
+    transition: .3s ease;
+    width: 267px;
+    z-index: 9999;
+}
+
+.active {
+    border: 2px solid transparent;
+    height: 112px;
+    transition: 0.3s;
+}

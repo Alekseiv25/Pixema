@@ -1,6 +1,7 @@
 @import '../../../styles/variables.scss';
 
 .user_container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;

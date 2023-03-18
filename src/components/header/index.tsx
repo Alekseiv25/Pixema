@@ -14,7 +14,10 @@ const Header = () => {
             location.pathname === '/signin' ||
                 location.pathname === '/signup' ||
                 location.pathname === '/reset' ||
-                location.pathname === '/newpassword' ? `${styles.disable}` : `${styles.active}`}>
+                location.pathname === '/newpassword' ||
+                location.pathname === 'activate/:uid/:token' ||
+                location.pathname === '/confirmation' ||
+                location.pathname === 'success' ? `${styles.disable}` : `${styles.active}`}>
             <header className={styles.header}>
                 <div className={styles.left_container}>
                     <BurgerButton />
@@ -24,7 +27,7 @@ const Header = () => {
                 <UserButton />
             </header>
             <BurgerMenu />
-        </section>
+        </section >
     )
 }
 

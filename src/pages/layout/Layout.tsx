@@ -13,7 +13,11 @@ const Layout = () => {
             location.pathname === '/signin' ||
                 location.pathname === '/signup' ||
                 location.pathname === '/reset' ||
-                location.pathname === '/newpassword' ? 'bg-app app' : 'app' && theme ? 'light  app' : 'app'
+                location.pathname === '/newpassword' ||
+                location.pathname === 'activate/:uid/:token' ||
+                location.pathname === '/confirmation' ||
+                location.pathname === 'success'
+                ? 'bg-app app' : 'app' && theme ? 'light  app' : 'app'
         }>
             <Header />
             <main className="wrapper">
