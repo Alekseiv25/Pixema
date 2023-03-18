@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux'
+import { changeThemeSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 interface IInputProps {
@@ -16,9 +18,10 @@ const Input = (props: IInputProps) => {
         placeholder,
         name,
     } = props
+    const theme = useSelector(changeThemeSelector)
 
     return (
-        <div className={styles.input_container}>
+        <div className={theme ? `${styles.input_container} ${styles.light}` : `${styles.input_container}`}>
             <span className={styles.label}>{label}</span>
             <input
                 type={type}

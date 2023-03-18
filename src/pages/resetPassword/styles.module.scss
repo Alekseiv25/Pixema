@@ -20,3 +20,15 @@
         margin-bottom: 40px;
     }
 }
+
+.light {
+    background: $white-color;
+
+    h2 {
+        color: $background-black
+    }
+
+    p {
+        color: $background-black
+    }
+}

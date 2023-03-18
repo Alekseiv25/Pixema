@@ -26,5 +26,11 @@
     input::-webkit-search-results-decoration {
         display: none;
     }
+}
 
+.light {
+    input {
+        border: 2px solid $light-color;
+        background: $white-color;
+    }
 }

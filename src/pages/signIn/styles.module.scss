@@ -54,5 +54,21 @@
 }
 
 .light {
-    background: white;
+    background: $white-color;
+
+    h2 {
+        color: $background-black
+    }
+
+    p {
+        color: $background-black
+    }
+
+    .forgot_link {
+        color: $background-black;
+
+        &:hover {
+            color: $primary-color
+        }
+    }
 }

@@ -24,6 +24,7 @@
         justify-content: space-between;
         border-radius: 10px;
         margin-bottom: 40px;
+        border: 2px solid transparent;
     }
 
     .theme_container {
@@ -35,6 +36,7 @@
         justify-content: space-between;
         border-radius: 10px;
         margin-bottom: 40px;
+        border: 2px solid transparent;
 
         p {
             color: $white-color;
@@ -144,7 +146,9 @@
     .form_container,
     .theme_container {
 
-        background: $light-color;
+        background: $white-color;
+
+        border: 2px solid $light-color;
 
         p {
             color: $background-dark

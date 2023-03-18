@@ -16,6 +16,7 @@
     border-radius: 10px;
     opacity: 0;
     transition: 0.3s;
+    pointer-events: none;
 
     @media (max-width: 1760px) {
         left: 70px;
@@ -71,5 +72,6 @@
 }
 
 .active {
+    pointer-events: all;
     opacity: 1;
 }

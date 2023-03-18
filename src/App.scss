@@ -1,5 +1,5 @@
 .app {
-    transition: 0.5s all;
+    transition: 0.4s;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -7,7 +7,7 @@
 }
 
 .bg-app {
-    background:  no-repeat center url(./assets/backgrounds/main_background.png);
+    background: no-repeat center url(./assets/backgrounds/main_background.png);
 }
 
 .wrapper {
