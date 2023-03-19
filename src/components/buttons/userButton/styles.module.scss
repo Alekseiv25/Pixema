@@ -1,42 +1,56 @@
 @import '../../../styles/variables.scss';
 
-.user_container {
+.user_block {
+    height: 56px;
+    margin-left: 40px;
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.3s;
 
-    &:hover button {
-        background: $primary-color-2;
-    }
-
-
-    button {
-        background: $primary-color;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 56px;
-        height: 56px;
-        padding: 20px;
-        border: 0;
-        margin-right: 10px;
-        color: $white-color;
+    .user_container {
         font-size: 16px;
         font-weight: 500;
+        transition: 0.3s;
+        align-items: center;
         cursor: pointer;
-    }
+        display: flex;
+        height: 56px;
+        position: relative;
+        white-space: nowrap;
+        justify-content: space-between;
 
-    span {
-        color: $white-color;
+        &:hover button {
+            background: $primary-color-2;
+        }
+
+        .user_info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                background: $primary-color;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 56px;
+                height: 56px;
+                padding: 20px;
+                border: 0;
+                margin-right: 10px;
+                color: $white-color;
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+
+            span {
+                color: $white-color;
+            }
+        }
     }
 }
+
+
 
 .light {
     span {
@@ -46,4 +60,11 @@
     button {
         color: $background-black
     }
+}
+svg {
+    transition: 0.3s;
+}
+.active_arrow {
+    
+    transform: scale(1, -1);
 }

@@ -3,17 +3,22 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: black !important;
+    background-color: black;
 }
 
 .bg-app {
-    background: no-repeat center url(./assets/backgrounds/main_background.png);
+    background: black no-repeat center url(./assets/backgrounds/main_background.png);
+}
+
+.bg-app-light {
+    background: white no-repeat center url(./assets/backgrounds/main_background.png);
 }
 
 .wrapper {
     padding: 0 20px;
+    min-height: 80vh;
 }
 
 .light {
-    background: white !important;
+    background: white;
 }

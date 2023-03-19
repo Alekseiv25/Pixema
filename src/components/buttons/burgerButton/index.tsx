@@ -1,3 +1,5 @@
+import useOutsideClick from '@rooks/use-outside-click'
+import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { burgerMenuAction } from '../../../store/reducers/toggleBurgerReducer/actions'
 import { toggleBurgerSelector } from '../../../store/selectors/selectors'
@@ -9,9 +11,11 @@ const BurgerButton = () => {
         dispatch(burgerMenuAction())
     }
     const toggleBurgerAction = useSelector(toggleBurgerSelector)
-
+    const ref: any = useRef<HTMLDivElement>(null);
+    useOutsideClick(ref, () => (toggleBurgerAction ? toggleBurger() : undefined))
+    
     return (
-        <button className={toggleBurgerAction ? `${styles.burger_button} ${styles.active}` : `${styles.burger_button}`} onClick={toggleBurger} >
+        <button ref={ref} className={toggleBurgerAction ? `${styles.burger_button} ${styles.active}` : `${styles.burger_button}`} onClick={toggleBurger} >
             <span></span>
             <span></span>
             <span></span>

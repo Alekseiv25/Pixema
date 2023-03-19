@@ -9,12 +9,12 @@ const Success = () => {
     return (
         <>
             <LogoButton className={styles.logo_button} />
-            <form onSubmit={() => { navigate('/') }} className={styles.form_container}>
+            <form onSubmit={() => { navigate('/signin') }} className={styles.form_container}>
                 <div>
                     <p>Почта подтверждена!</p>
                     <p>Регистрация прошла успешно.</p>
                 </div>
-                <Submit value={'Домой'} />
+                <Submit value={'Авторизироваться'} />
             </form>
         </>
     )

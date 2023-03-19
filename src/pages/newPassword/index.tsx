@@ -1,17 +1,37 @@
+import { FormEventHandler, useState } from "react"
+import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
+import {  useNavigate, useParams } from "react-router-dom"
 import LogoButton from "../../components/buttons/logoButton"
 import Input from "../../components/input"
 import Submit from "../../components/submit"
+import { resetPasswordAsyncAction } from "../../store/reducers/resetReducer/actions"
 import { changeThemeSelector } from "../../store/selectors/selectors"
 import styles from './styles.module.scss'
 const NewPassword = () => {
-const theme = useSelector(changeThemeSelector)
+    const navigate = useNavigate()
+    const [massage, setMessage] = useState('')
+    const theme = useSelector(changeThemeSelector)
+    const { uid, token } = useParams()
+    const dispatch = useDispatch()
+    const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault()
+        const newPassword: string = e.currentTarget.password.value
+        if (uid && token) {
+            setMessage('Ваш пароль изменён')
+            setTimeout(
+                dispatch(resetPasswordAsyncAction(uid, token, newPassword, () => navigate('/signin'))),
+                4000
+            )
+        }
+    }
 
     return (
         <>
             <LogoButton className={styles.logo_button} />
-            <form className={theme ? `${styles.form_container} ${styles.light}` : `${styles.form_container}`}>
+            <form onSubmit={handleSubmit} className={theme ? `${styles.form_container} ${styles.light}` : `${styles.form_container}`}>
                 <h2>Новый пароль</h2>
+                <span>{massage}</span>
                 <Input
                     type={'password'}
                     placeholder={'Введите новый пароль'}

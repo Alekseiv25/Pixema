@@ -14,7 +14,7 @@ const LogoButton = (props: IProps) => {
     const theme = useSelector(changeThemeSelector)
 
     return (
-        <button onClick={() => navigate('/')} className={theme ? `${styles.logo_button} ${className} ${styles.light}` : `${styles.logo_button}`}>
+        <button onClick={() => navigate('/')} className={theme ?  `${className} ${styles.logo_button}   ${styles.light}`  : `${styles.logo_button} ${className}`}>
             <Logo />
         </button>
     )

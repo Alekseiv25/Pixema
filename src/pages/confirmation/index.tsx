@@ -13,9 +13,9 @@ const Confirmation = () => {
             <LogoButton className={styles.logo_button} />
             <form onSubmit={() => { navigate('/') }} className={styles.form_container}>
                 <p>
-                    Please activate your account with the activation
-                    link in the email <b>{email}</b>
-                    Please, check your email
+                    Пожалуйста активируйте свой аккаунт по ссылке активации
+                    на вашей почте <b>{email}</b><br/>
+                    Пожалуйста, проверьте свою почту
                 </p>
                 <Submit value={"Домой"} />
             </form>

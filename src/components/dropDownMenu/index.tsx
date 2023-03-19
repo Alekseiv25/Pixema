@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { signOutAction } from '../../store/reducers/authReducer/actions'
 import styles from './styles.module.scss'
 
 interface IProps {
@@ -6,10 +9,18 @@ interface IProps {
 
 const DropDownMenu = (props: IProps) => {
     const { active } = props
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const handleLogOut = () => {
+        dispatch(signOutAction())
+    }
 
     return (
         <div className={active === true ? `${styles.active} ${styles.dropdown_container}` : `${styles.dropdown_container}`}>
-            <button>Выход</button>
+            <button onClick={() => { navigate('/settings') }}>Изменить профиль</button>
+            <hr />
+            <button onClick={handleLogOut} >Выход</button>
         </div>
     )
 }

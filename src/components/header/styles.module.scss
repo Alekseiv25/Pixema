@@ -1,11 +1,11 @@
 .header {
     margin: 0 auto;
-    margin-top: 40px;
     max-width: 1610px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
+    padding-top: 40px;
     align-items: center;
 
     @media (max-width: 1760px) {
@@ -28,5 +28,5 @@
 }
 
 .active {
-    display: block;
+    display: flex;
 }

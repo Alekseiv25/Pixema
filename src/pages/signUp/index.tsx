@@ -6,11 +6,12 @@ import LogoButton from '../../components/buttons/logoButton'
 import Input from '../../components/input'
 import Submit from '../../components/submit'
 import { registerUserAsyncAction } from '../../store/reducers/registerReducer/actions'
-import { changeThemeSelector } from '../../store/selectors/selectors'
+import { changeThemeSelector, registerSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 const SignUp = () => {
     const theme = useSelector(changeThemeSelector)
+    const info = useSelector(registerSelector)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
@@ -26,6 +27,7 @@ const SignUp = () => {
                 () => navigate('/confirmation', { state: email })
             )
         )
+        console.log(info.errors);
 
     }
 
@@ -56,7 +58,7 @@ const SignUp = () => {
                     type={'password'}
                     label={'Подтверждение пароля'}
                     placeholder={'Подтвердите ваш пароль'}
-                    name={'password'}
+                    name={'confirm_password'}
                 />
                 <Submit value={'Зарегестрироваться'} />
                 <p>Есть аккаунт? <NavLink to={'/signin'}>Авторизоваться</NavLink></p>
