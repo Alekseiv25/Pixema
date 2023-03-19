@@ -17,6 +17,28 @@ export const getUser = async (token: string) => {
     }
 }
 
+export const patchUser = async (token: string, username: string) => {
+    const url = 'https://studapi.teachmeskills.by/auth/users/me/'
+    const params = {
+        method: 'PATCH',
+        headers: {
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            username: username
+        })
+    }
+    const request = new Request(url, params)
+    const response = await fetch(request)
+    const result = await response.json()
+    return {
+        ok: response.ok,
+        status: response.status,
+        data: result
+    }
+}
+
 export const fetchResetPassword = async (email: string) => {
     const url = 'https://studapi.teachmeskills.by/auth/users/reset_password/'
     const params = {

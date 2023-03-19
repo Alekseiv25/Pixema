@@ -1,8 +1,8 @@
 import getTokensUser from "../../../services/auth/authService"
-import { fetchRefreshToken, getUser } from "../../../services/user/userService"
+import { fetchRefreshToken, getUser, patchUser } from "../../../services/user/userService"
 import { IBaseActionType, IObjectStringList, ITokenDto, IUserType } from "../../../types/types"
 import { GlobalDispatch, GlobalState } from "../../store"
-import { GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, SIGN_OUT } from "./constants"
+import { GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, PATCH_USER, SIGN_OUT } from "./constants"
 import { AuthUserActionType } from "./types"
 
 export const getTokensSuccessAction = (
@@ -83,6 +83,38 @@ export const getUserAsyncAction = (email: string, password: string, cb: () => vo
         }
     }
 }
+
+export const patchUserAction = (user: IUserType) => {
+    return {
+        type: PATCH_USER,
+        payload: user
+    }
+}
+
+export const patchUserAsyncAction = (username: string): any => {
+    return async (dispatch: GlobalDispatch, getState: () => GlobalState) => {
+        let accessToken = getState().auth.tokens?.access
+
+        if (!accessToken) {
+            throw new Error('no Access Token')
+        }
+        const result = await patchUser(accessToken, username)
+
+
+        if (result.ok) {
+            const userInfo = await getUser(accessToken)
+            dispatch(getUserAction(userInfo.data))
+            console.log(result.data);
+        } else if (result.status === 401) {
+            await dispatch(refreshTokenAsyncAction())
+            console.log('refresh token');
+            await dispatch(patchUserAsyncAction(username))
+        } else {
+            console.log(result.data);
+        }
+    }
+}
+
 
 export const signOutAction = (): IBaseActionType => {
     return {

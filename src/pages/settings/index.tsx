@@ -1,8 +1,10 @@
+import { FormEventHandler } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Input from '../../components/input'
 import Submit from '../../components/submit'
+import { patchUserAsyncAction } from '../../store/reducers/authReducer/actions'
 import { ThemeColorAction } from '../../store/reducers/themeReducer/actions'
 import { changeThemeSelector, userSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
@@ -16,18 +18,29 @@ const Settings = () => {
     }
     const user = useSelector(userSelector)
 
+    const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault()
+        const name: string = e.currentTarget.username.value;
+        dispatch(patchUserAsyncAction(name))
+        console.log('Что-то происходит');
+        console.log(name);
+
+    }
+
+
     return (
         <>
             <div className={!theme ? `${styles.settings_container}` : `${styles.settings_container} ${styles.light}`}>
                 <div className={!user ? `${styles.disable}` : ''}>
                     <h2 >Профиль</h2>
-                    <form className={styles.form_container}>
+                    <form onSubmit={handleSubmit} className={styles.form_container}>
                         <div className={styles.input_container}>
                             <Input
                                 type={'text'}
                                 label={'Имя'}
                                 placeholder={'Имя'}
                                 name={'username'}
+                                defaultValue={user?.username}
                             />
                         </div>
                         <div className={styles.input_container}>
@@ -36,8 +49,10 @@ const Settings = () => {
                                 label={'Email'}
                                 placeholder={'Почта'}
                                 name={'email'}
+                                defaultValue={user?.email}
                             />
                         </div>
+                        <Submit value={'Сохранить'} />
                     </form>
                 </div>
                 <div className={!user ? `${styles.disable}` : ''}>
@@ -86,7 +101,7 @@ const Settings = () => {
                 </div>
                 <div className={styles.settings_footer}>
                     <button onClick={() => navigate('/')} className={styles.cancel_button}>Закрыть</button>
-                    <Submit value={'Сохранить'} />
+
                 </div>
             </div>
         </>

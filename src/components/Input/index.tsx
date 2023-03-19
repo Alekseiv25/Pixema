@@ -9,6 +9,7 @@ interface IInputProps {
     name: string
     value?: string
     className?: string
+    defaultValue?: string
 }
 
 const Input = (props: IInputProps) => {
@@ -17,6 +18,7 @@ const Input = (props: IInputProps) => {
         label,
         placeholder,
         name,
+        defaultValue
     } = props
     const theme = useSelector(changeThemeSelector)
 
@@ -24,6 +26,7 @@ const Input = (props: IInputProps) => {
         <div className={theme ? `${styles.input_container} ${styles.light}` : `${styles.input_container}`}>
             <span className={styles.label}>{label}</span>
             <input
+                defaultValue={defaultValue}
                 type={type}
                 placeholder={placeholder}
                 name={name}
