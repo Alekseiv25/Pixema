@@ -2,7 +2,7 @@ import getTokensUser from "../../../services/auth/authService"
 import { fetchRefreshToken, getUser, patchUser } from "../../../services/user/userService"
 import { IBaseActionType, IObjectStringList, ITokenDto, IUserType } from "../../../types/types"
 import { GlobalDispatch, GlobalState } from "../../store"
-import { GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, PATCH_USER, SIGN_OUT } from "./constants"
+import { GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, SIGN_OUT } from "./constants"
 import { AuthUserActionType } from "./types"
 
 export const getTokensSuccessAction = (
@@ -81,13 +81,6 @@ export const getUserAsyncAction = (email: string, password: string, cb: () => vo
             dispatch(getUserAction(userInfo.data))
             cb()
         }
-    }
-}
-
-export const patchUserAction = (user: IUserType) => {
-    return {
-        type: PATCH_USER,
-        payload: user
     }
 }
 
