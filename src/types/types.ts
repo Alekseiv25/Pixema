@@ -15,3 +15,9 @@ export interface IUserType {
     email: string
     id: number
 }
+
+export interface IPatchPassword {
+    token?: string;
+    new_password?: string;
+    current_password?: string;
+  }

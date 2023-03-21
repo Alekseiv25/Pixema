@@ -39,6 +39,52 @@ export const patchUser = async (token: string, username: string) => {
     }
 }
 
+export const patchEmail = async (token: string, password: string, email: string) => {
+    const url = 'https://studapi.teachmeskills.by/auth/users/set_email/'
+    const params = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "current_password": password,
+            "new_email": email
+        })
+    }
+    const request = new Request(url, params)
+    const response = await fetch(request)
+    const result = await response.json()
+    return {
+        ok: response.ok,
+        status: response.status,
+        data: result
+    }
+}
+
+export const patchPassword = async (token: string, current_password: string, new_password: string)  => {
+    const url = 'https://studapi.teachmeskills.by/auth/users/set_password/'
+    const params = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            Authrization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            new_password: new_password,
+            current_password: current_password
+        })
+    }
+    const request = new Request(url, params)
+    const response = await fetch(request)
+    const result = await response.json()
+    return {
+        ok: response.ok,
+        status: response.status,
+        data: result
+    }
+}
+
 export const fetchResetPassword = async (email: string) => {
     const url = 'https://studapi.teachmeskills.by/auth/users/reset_password/'
     const params = {

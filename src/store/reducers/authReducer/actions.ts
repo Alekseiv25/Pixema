@@ -1,5 +1,5 @@
 import getTokensUser from "../../../services/auth/authService"
-import { fetchRefreshToken, getUser, patchUser } from "../../../services/user/userService"
+import { fetchRefreshToken, getUser, patchEmail, patchPassword, patchUser } from "../../../services/user/userService"
 import { IBaseActionType, IObjectStringList, ITokenDto, IUserType } from "../../../types/types"
 import { GlobalDispatch, GlobalState } from "../../store"
 import { GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, SIGN_OUT } from "./constants"
@@ -97,11 +97,57 @@ export const patchUserAsyncAction = (username: string): any => {
         if (result.ok) {
             const userInfo = await getUser(accessToken)
             dispatch(getUserAction(userInfo.data))
-            console.log(result.data);
         } else if (result.status === 401) {
             await dispatch(refreshTokenAsyncAction())
             console.log('refresh token');
             await dispatch(patchUserAsyncAction(username))
+        } else {
+            console.log(result.data);
+        }
+    }
+}
+
+export const patchEmailAsyncAction = (password: string, email: string): any => {
+    return async (dispatch: GlobalDispatch, getState: () => GlobalState) => {
+        let accessToken = getState().auth.tokens?.access
+
+        if (!accessToken) {
+            throw new Error('no Access Token')
+        }
+        const result = await patchEmail(accessToken, password, email)
+
+        if (result.ok) {
+            const userInfo = await getUser(accessToken)
+            dispatch(getUserAction(userInfo.data))
+        } else if (result.status === 401) {
+            await dispatch(refreshTokenAsyncAction())
+            console.log('refresh token');
+            await dispatch(patchEmailAsyncAction(password, email))
+        } else {
+            console.log(result.data);
+        }
+    }
+}
+
+export const patchPasswordAsyncAction = (new_password: string, current_password: string): any => {
+    return async (dispatch: GlobalDispatch, getState: () => GlobalState) => {
+        let accessToken = getState().auth.tokens?.access
+
+        if (!accessToken) {
+            throw new Error('no Access Token')
+        }
+        const result = await patchPassword(accessToken, current_password, new_password)
+
+        if (result.ok) {
+            const userInfo = await getUser(accessToken)
+            dispatch(getUserAction(userInfo.data))
+            console.log(result.data);
+
+        } else if (result.status === 401) {
+            await dispatch(refreshTokenAsyncAction())
+            console.log('refresh token');
+            await dispatch(patchPasswordAsyncAction(current_password, new_password))
+            console.log(result.data);
         } else {
             console.log(result.data);
         }
