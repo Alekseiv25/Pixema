@@ -2,7 +2,7 @@ import getTokensUser from "../../../services/auth/authService"
 import { fetchRefreshToken, getUser, patchEmail, patchPassword, patchUser } from "../../../services/user/userService"
 import { IBaseActionType, IObjectStringList, ITokenDto, IUserType } from "../../../types/types"
 import { GlobalDispatch, GlobalState } from "../../store"
-import { GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, SIGN_OUT } from "./constants"
+import { GET_ERRORS, GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, SIGN_OUT } from "./constants"
 import { AuthUserActionType } from "./types"
 
 export const getTokensSuccessAction = (
@@ -20,6 +20,13 @@ export const getTokensFailedAction = (
     return {
         type: GET_TOKEN_FAILED,
         payload: errors,
+    }
+}
+
+export const getErrorsAction = (errors: IObjectStringList) => {
+    return {
+        type: GET_ERRORS,
+        payload: errors
     }
 }
 
@@ -84,7 +91,7 @@ export const getUserAsyncAction = (email: string, password: string, cb: () => vo
     }
 }
 
-export const patchUserAsyncAction = (username: string): any => {
+export const patchUserAsyncAction = (username: string, cb: () => void): any => {
     return async (dispatch: GlobalDispatch, getState: () => GlobalState) => {
         let accessToken = getState().auth.tokens?.access
 
@@ -97,17 +104,18 @@ export const patchUserAsyncAction = (username: string): any => {
         if (result.ok) {
             const userInfo = await getUser(accessToken)
             dispatch(getUserAction(userInfo.data))
+            cb()
         } else if (result.status === 401) {
             await dispatch(refreshTokenAsyncAction())
             console.log('refresh token');
-            await dispatch(patchUserAsyncAction(username))
+            await dispatch(patchUserAsyncAction(username, cb))
         } else {
-            console.log(result.data);
+            dispatch(getErrorsAction(result.data))
         }
     }
 }
 
-export const patchEmailAsyncAction = (password: string, email: string): any => {
+export const patchEmailAsyncAction = (password: string, email: string, cb: () => void): any => {
     return async (dispatch: GlobalDispatch, getState: () => GlobalState) => {
         let accessToken = getState().auth.tokens?.access
 
@@ -119,17 +127,18 @@ export const patchEmailAsyncAction = (password: string, email: string): any => {
         if (result.ok) {
             const userInfo = await getUser(accessToken)
             dispatch(getUserAction(userInfo.data))
+            cb()
         } else if (result.status === 401) {
             await dispatch(refreshTokenAsyncAction())
             console.log('refresh token');
-            await dispatch(patchEmailAsyncAction(password, email))
+            await dispatch(patchEmailAsyncAction(password, email, cb))
         } else {
-            console.log(result.data);
+            dispatch(getErrorsAction(result.data))
         }
     }
 }
 
-export const patchPasswordAsyncAction = (new_password: string, current_password: string): any => {
+export const patchPasswordAsyncAction = (new_password: string, current_password: string, cb: () => void): any => {
     return async (dispatch: GlobalDispatch, getState: () => GlobalState) => {
         let accessToken = getState().auth.tokens?.access
 
@@ -141,15 +150,13 @@ export const patchPasswordAsyncAction = (new_password: string, current_password:
         if (result.ok) {
             const userInfo = await getUser(accessToken)
             dispatch(getUserAction(userInfo.data))
-            console.log(result.data);
-
+            cb()
         } else if (result.status === 401) {
             await dispatch(refreshTokenAsyncAction())
             console.log('refresh token');
-            await dispatch(patchPasswordAsyncAction(current_password, new_password))
-            console.log(result.data);
+            await dispatch(patchPasswordAsyncAction(current_password, new_password, cb))
         } else {
-            console.log(result.data);
+            console.log('error');
         }
     }
 }

@@ -68,7 +68,7 @@ export const patchPassword = async (token: string, current_password: string, new
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
-            Authrization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
             new_password: new_password,
@@ -77,11 +77,9 @@ export const patchPassword = async (token: string, current_password: string, new
     }
     const request = new Request(url, params)
     const response = await fetch(request)
-    const result = await response.json()
     return {
         ok: response.ok,
         status: response.status,
-        data: result
     }
 }
 

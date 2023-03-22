@@ -1,5 +1,5 @@
 import { IObjectStringList, ITokenDto, IUserType } from "../../../types/types"
-import { defaultState, GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, SIGN_OUT } from "./constants"
+import { defaultState, GET_ERRORS, GET_TOKEN_FAILED, GET_TOKEN_SUCCESS, GET_USER, SIGN_OUT } from "./constants"
 import { AuthUserActionType, IAuthState, } from "./types"
 
 export const authReducer = (state: IAuthState = defaultState, action: AuthUserActionType): IAuthState => {
@@ -22,6 +22,12 @@ export const authReducer = (state: IAuthState = defaultState, action: AuthUserAc
             return {
                 ...state,
                 user: action.payload as IUserType,
+            }
+        }
+        case GET_ERRORS: {
+            return {
+                ...state,
+                errors: action.payload as IObjectStringList
             }
         }
         case SIGN_OUT: {
