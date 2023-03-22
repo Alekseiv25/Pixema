@@ -1,0 +1,2 @@
+export const API_KEY = 'VGD10ZY-WNA4266-G8Q4TB8-NRRS4TA'
+
