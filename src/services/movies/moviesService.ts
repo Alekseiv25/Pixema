@@ -9,3 +9,13 @@ export const moviesResponse = (limit: number) => {
     return fetch(request)
         .then((response) => response.json())
 };
+
+export const moviesResponseById = (id: string): Promise<any> => {
+    const URL = `https://api.kinopoisk.dev/v1/movie/${id}&token=${API_KEY}`;
+    const request = new Request(URL, {
+        method: "GET",
+    });
+
+    return fetch(request)
+        .then((response) => response.json())
+}

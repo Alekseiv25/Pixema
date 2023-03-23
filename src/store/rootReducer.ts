@@ -3,6 +3,7 @@ import { authReducer } from "./reducers/authReducer/reducer";
 import moviesListReducer from "./reducers/moviesReducer/reducer";
 import registerReducer from "./reducers/registerReducer/reducer";
 import { resetReducer } from "./reducers/resetReducer/reducer";
+import selectedMovieReducer from "./reducers/selectedMovieReducer/reducer";
 import { themeReducer } from "./reducers/themeReducer/reducer";
 import burgerMenuReducer from "./reducers/toggleBurgerReducer/reducer";
 
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     register: registerReducer,
     auth: authReducer,
     reset: resetReducer,
-    movies: moviesListReducer
+    movies: moviesListReducer,
+    selectedMovie: selectedMovieReducer,
 })
 
 export default rootReducer
