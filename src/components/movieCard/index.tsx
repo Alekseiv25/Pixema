@@ -7,7 +7,9 @@ import styles from './styles.module.scss'
 const MovieCard = ({ docs }: IMovieProps) => {
     return (
         <div className={styles.movie_card}>
-            <Rating rating={docs?.rating} />
+            <div className={styles.movie_makers}>
+                <Rating rating={docs?.rating} />
+            </div>
             <Link to={`film/${docs?.id}`}>
                 <div
                     className={styles.movie_poster}
@@ -20,6 +22,7 @@ const MovieCard = ({ docs }: IMovieProps) => {
                         <Genres genres={docs?.genres} />
                     </div>
                 </div>
+
             </Link>
         </div>
     )

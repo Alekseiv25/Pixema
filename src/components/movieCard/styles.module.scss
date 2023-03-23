@@ -1,0 +1,77 @@
+@import '../../styles/variables.scss';
+
+.movie_card {
+    width: 266px;
+    position: relative;
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    cursor: pointer;
+
+    .movie_makers {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        align-items: center;
+        height: 70px;
+        position: absolute;
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    &:hover h2 {
+        color: $primary-color
+    }
+
+    &:hover {
+        &:after {
+            background-color: rgba(#000, 0.2);
+        }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        border-radius: 20px;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 378px;
+        background-color: rgba(#000, 0);
+        transition: 0.3s ease;
+    }
+
+
+
+    .movie_poster {
+        height: 357px;
+        padding: 20px;
+        border-radius: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        transition: 0.3s ease;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .movie_description {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            font-size: 16px;
+            color: #fff;
+            font-weight: 700;
+            line-height: 24px;
+            transition: 0.3s ease;
+            margin-bottom: 4px;
+        }
+    }
+}

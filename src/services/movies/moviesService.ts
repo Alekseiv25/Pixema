@@ -1,19 +1,11 @@
-import { IMovie } from "../../types/movieTypes";
+import { API_KEY } from "../../constants/constants";
 
-export const getMovies = async (key: string, limit: number) => {
-    const url = `https://api.kinopoisk.dev/v1/movie?limit=${limit}&token=${key}`;
-    const params = {
+export const moviesResponse = (limit: number) => {
+    const URL = `https://api.kinopoisk.dev/v1/movie?page=1&limit=${limit}&year=2022-2023&token=${API_KEY}`;
+    const request = new Request(URL, {
         method: "GET",
-        headers: {
-            "Content-type": "application/json",
-        },
-    };
-    const request = new Request(url, params);
-    const response = await fetch(request);
-    const result: IMovie = await response.json();
-    return {
-        ok: response.ok,
-        status: response.status,
-        data: result,
-    };
+    });
+
+    return fetch(request)
+        .then((response) => response.json())
 };

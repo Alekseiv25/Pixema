@@ -1,7 +1,9 @@
+import Movies from "../../movies"
+import styles from './styles.module.scss'
 const Main = () => {
     return (
-        <div>
-            Main
+        <div className={styles.movies_wrapper}>
+            <Movies />
         </div>
     )
 }
