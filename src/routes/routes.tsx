@@ -6,6 +6,7 @@ import Main from "../pages/main"
 import NewPassword from "../pages/newPassword"
 import NotFound from "../pages/notFound"
 import ResetPassword from "../pages/resetPassword"
+import SelectedMovie from "../pages/selectedMovie"
 import Settings from "../pages/settings"
 import SignIn from "../pages/signIn"
 import SignUp from "../pages/signUp"
@@ -24,6 +25,7 @@ const Router = () => {
                 <Route path='password/reset/confirm/:uid/:token' element={<NewPassword />} />
                 <Route path='/settings' element={<Settings />} />
                 <Route index element={<Main />} />
+                <Route path='/film/:id' element={<SelectedMovie />}/>
                 <Route path='*' element={<NotFound />} />
             </Route>
         </Routes>

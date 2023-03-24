@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { moviesSelector } from '../store/selectors/selectors'
-import loadMoviesListAsyncAction from '../store/reducers/moviesReducer/actions'
-
+import MovieCard from '../movieCard'
+import loadMoviesListAsyncAction from '../../store/reducers/moviesReducer/actions'
+import { moviesSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
-import MovieCard from '../components/movieCard'
 
 const Movies = () => {
     const dispatch = useDispatch()
