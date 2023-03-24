@@ -2,10 +2,14 @@ import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+
 import AgeRating from "../../components/ageRating"
 import FavoriteButton from "../../components/buttons/favoriteButton"
+import Facts from "../../components/facts"
 import Genres from "../../components/genres"
 import Rating from "../../components/rating"
+import Tabs from "../../components/tabs"
+import TabsLayout from "../../components/tabs/tabsLayout"
 import Time from "../../components/time"
 import { getRandomInt } from "../../helpers/getRandomInt"
 import loadSelectedMovieAsyncAction from "../../store/reducers/selectedMovieReducer/actions"
@@ -94,102 +98,105 @@ export const SelectedMovie = () => {
 
 
 
-    //     const roles = movie.persons?.filter((item: IMoviePerson) =>
-    //     item.enProfession === "actor" && item.name?.length ? item : undefined
-    //   );
-    //   const similars = movie.similarMovies?.filter((item: IMovieSimilar) =>
-    //     item.name?.length ? item : undefined
-    //   );
-    //   const sequels = movie.sequelsAndPrequels?.filter((item: IMovie) =>
-    //     item.name?.length ? item : undefined
-    //   );
-    //   const tabs = [
-    //     {
-    //       txt: `Похожие ${
-    //         (movie.typeNumber === 1 && "фильмы") ||
-    //         (movie.typeNumber === 2 && "сериалы") ||
-    //         ((movie.typeNumber === 3 || movie.typeNumber === 5) && "мультфильмы")
-    //       }`,
-    //       content: (
-    //         <TabsLayout
-    //           similars={similars}
-    //           title={`Похожие ${
-    //             (movie.typeNumber === 1 && "фильмы") ||
-    //             (movie.typeNumber === 2 && "сериалы") ||
-    //             ((movie.typeNumber === 3 || movie.typeNumber === 5) && "мультфильмы")
-    //           } (${similars?.length})`}
-    //         />
-    //       ),
-    //       condition: similars?.length,
-    //     },
-    //     {
-    //       txt: "Актёры",
-    //       content: <TabsLayout roles={roles} title={`Актёры (${roles?.length})`} />,
-    //       condition: roles?.length,
-    //     },
-    //     {
-    //       txt: "Сиквелы и приквелы",
-    //       content: (
-    //         <TabsLayout
-    //           sequels={sequels}
-    //           title={`Сиквелы и приквелы (${sequels?.length})`}
-    //         />
-    //       ),
-    //       condition: sequels?.length,
-    //     },
-    //     {
-    //       txt: "Факты",
-    //       content: <Facts facts={facts} />,
-    //       condition: facts?.length,
-    //     },
-    //   ];
+    const roles = movie.persons?.filter((item: IMoviePerson) =>
+        item.enProfession === "actor" && item.name?.length ? item : undefined
+    );
+    const similars = movie.similarMovies?.filter((item: IMovieSimilar) =>
+        item.name?.length ? item : undefined
+    );
+    const sequels = movie.sequelsAndPrequels?.filter((item: IMovie) =>
+        item.name?.length ? item : undefined
+    );
+    const tabs = [
+        {
+            txt: `Похожие ${(movie.typeNumber === 1 && "фильмы") ||
+                (movie.typeNumber === 2 && "сериалы") ||
+                ((movie.typeNumber === 3 || movie.typeNumber === 5) && "мультфильмы")
+                }`,
+            content: (
+                <TabsLayout
+                    similars={similars}
+                    title={`Похожие ${(movie.typeNumber === 1 && "фильмы") ||
+                        (movie.typeNumber === 2 && "сериалы") ||
+                        ((movie.typeNumber === 3 || movie.typeNumber === 5) && "мультфильмы")
+                        } (${similars?.length})`}
+                />
+            ),
+            condition: similars?.length,
+        },
+        {
+            txt: "Актёры",
+            content: <TabsLayout roles={roles} title={`Актёры (${roles?.length})`} />,
+            condition: roles?.length,
+        },
+        {
+            txt: "Сиквелы и приквелы",
+            content: (
+                <TabsLayout
+                    sequels={sequels}
+                    title={`Сиквелы и приквелы (${sequels?.length})`}
+                />
+            ),
+            condition: sequels?.length,
+        },
+        {
+            txt: "Факты",
+            content: <Facts facts={movie.facts} />,
+            condition: movie.facts?.length,
+        },
+    ];
 
 
 
 
     return (
         <div className={styles.movie_container}>
-            <div className={styles.left_container}>
-                <div className={styles.img_container}>
-                    <img src={movie.poster?.url} alt="movie poster" />
-                </div>
-                <div className={styles.buttons_group}>
-                    <FavoriteButton id={id} />
-                </div>
-            </div>
-            <div className={styles.top_container}>
-                <div className={styles.genres_container}>
-                    <Genres genres={movie.genres} />
-                </div>
-                <h1 className={styles.movie_name}>{movie.name ? movie.name : movie.enName}</h1>
-                <h2 className={styles.movie_altname}>{movie.alternativeName}</h2>
-                <div className={styles.movie_markers}>
-                    <Rating rating={movie.rating} />
-                    <Time movieLength={movie.movieLength} />
-                    <AgeRating ageRating={movie.ageRating} />
-                </div>
-                <div className={styles.info_container}>
-                    <p className={styles.movie_description}>
-                        {movie.description}
-                    </p>
-                    <div className={styles.column_description}>
-                        {items.map(
-                            (item) =>
-                                item.condition && (
-                                    <div
-                                        className={styles.column_description_block}
-                                        key={item.title}
-                                    >
-                                        <p className={styles.column_title}>{item.title}</p>
-                                        <p className={styles.column_description_content}
-                                        >
-                                            {item.value}
-                                        </p>
-                                    </div>
-                                )
-                        )}
+            <div className={styles.content}>
+                <div className={styles.left_container}>
+                    <div className={styles.img_container}>
+                        <img src={movie.poster?.url} alt="movie poster" />
+                    </div>
+                    <div className={styles.buttons_group}>
+                        <FavoriteButton id={id} />
                     </div>
                 </div>
+                <div className={styles.top_container}>
+                    <div className={styles.genres_container}>
+                        <Genres genres={movie.genres} />
+                    </div>
+                    <h1 className={styles.movie_name}>{movie.name ? movie.name : movie.enName}</h1>
+                    <h2 className={styles.movie_altname}>{movie.alternativeName}</h2>
+                    <div className={styles.movie_markers}>
+                        <Rating rating={movie.rating} />
+                        <Time movieLength={movie.movieLength} />
+                        <AgeRating ageRating={movie.ageRating} />
+                    </div>
+                    <div className={styles.info_container}>
+                        <p className={styles.movie_description}>
+                            {movie.description}
+                        </p>
+                        <div className={styles.column_description}>
+                            {items.map(
+                                (item) =>
+                                    item.condition && (
+                                        <div
+                                            className={styles.column_description_block}
+                                            key={item.title}
+                                        >
+                                            <p className={styles.column_title}>{item.title}</p>
+                                            <p className={styles.column_description_content}
+                                            >
+                                                {item.value}
+                                            </p>
+                                        </div>
+                                    )
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.bottom_container}>
+                <Tabs tabs={tabs} />
             </div>
         </div>
     )

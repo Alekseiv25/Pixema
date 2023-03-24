@@ -10,7 +10,7 @@ const MovieCard = ({ docs }: IMovieProps) => {
             <div className={styles.movie_makers}>
                 <Rating rating={docs?.rating} />
             </div>
-            <Link to={`film/${docs?.id}`}>
+            <Link to={`/film/${docs?.id}`}>
                 <div
                     className={styles.movie_poster}
                     style={{ backgroundImage: `url(${docs?.poster?.url})` }}

@@ -25,7 +25,9 @@ const Router = () => {
                 <Route path='password/reset/confirm/:uid/:token' element={<NewPassword />} />
                 <Route path='/settings' element={<Settings />} />
                 <Route index element={<Main />} />
-                <Route path='/film/:id' element={<SelectedMovie />}/>
+                <Route path="film/">
+                    <Route path=":id" element={<SelectedMovie />} />
+                </Route>
                 <Route path='*' element={<NotFound />} />
             </Route>
         </Routes>

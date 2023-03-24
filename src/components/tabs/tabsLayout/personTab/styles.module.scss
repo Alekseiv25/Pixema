@@ -1,12 +1,14 @@
-@import '../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
-.movie_card {
+.person {
     width: 266px;
+    height: 433px;
     position: relative;
+    cursor: pointer;
     display: flex;
     text-decoration: none;
     flex-direction: column;
-    cursor: pointer;
+    z-index: 22;
 
     @media (max-width: 1720px) {
         width: 208px;
@@ -16,22 +18,8 @@
         width: 272px;
     }
 
-    .movie_makers {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        align-items: center;
-        height: 70px;
-        position: absolute;
-        width: 100%;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
     &:hover h2 {
-        color: $primary-color
+        color: $primary-color !important;
     }
 
     &:hover {
@@ -43,13 +31,12 @@
     &:after {
         content: "";
         position: absolute;
-        border-radius: 20px;
-        pointer-events: none;
         top: 0;
         left: 0;
         right: 0;
-        height: 378px;
-        background-color: rgba(#000, 0);
+        height: 358px;
+        border-radius: 20px;
+        background-color: rgba($background-black, 0);
         transition: 0.3s ease;
 
         @media (max-width: 1720px) {
@@ -61,20 +48,16 @@
         }
     }
 
-
-
-    .movie_poster {
+    .person_photo {
         height: 357px;
         padding: 20px;
         border-radius: 20px;
+        width: 100%;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         transition: 0.3s ease;
         position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
 
         @media (max-width: 1720px) {
             height: 279px;
@@ -85,17 +68,23 @@
         }
     }
 
-    .movie_description {
+    .person_description {
         display: flex;
         flex-direction: column;
+        max-height: 76px;
 
         h2 {
             font-size: 16px;
-            color: #fff;
+            color: $white-color;
             font-weight: 700;
             line-height: 24px;
             transition: 0.3s ease;
             margin-bottom: 4px;
+        }
+
+        p {
+            color: $light-color;
+            margin: 0;
         }
     }
 }

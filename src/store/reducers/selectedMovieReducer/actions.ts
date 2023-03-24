@@ -1,5 +1,5 @@
 import { moviesResponseById } from "../../../services/movies/moviesService";
-import { IMovie, IMovieProps } from "../../../types/movieTypes";
+import { IMovie } from "../../../types/movieTypes";
 import { GlobalDispatch } from "../../store";
 import { LOAD_SELECTED_MOVIE } from "./constants";
 import { SelectedMovieAction } from "./types";
