@@ -4,6 +4,8 @@ import moviesListReducer from "./reducers/moviesReducer/reducer";
 import registerReducer from "./reducers/registerReducer/reducer";
 import { resetReducer } from "./reducers/resetReducer/reducer";
 import selectedMovieReducer from "./reducers/selectedMovieReducer/reducer";
+import { selectedPersonReducer } from "./reducers/selectedPersonReducer/reducer";
+
 import { themeReducer } from "./reducers/themeReducer/reducer";
 import burgerMenuReducer from "./reducers/toggleBurgerReducer/reducer";
 
@@ -15,6 +17,7 @@ const rootReducer = combineReducers({
     reset: resetReducer,
     movies: moviesListReducer,
     selectedMovie: selectedMovieReducer,
+    selectedPerson: selectedPersonReducer
 })
 
 export default rootReducer

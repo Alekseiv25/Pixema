@@ -26,7 +26,8 @@ h2 {
     color: $white-color;
 }
 
-.swiper_buttons {
+.swiper-buttons {
     display: flex;
     gap: 20px;
+    justify-content: flex-end;
 }

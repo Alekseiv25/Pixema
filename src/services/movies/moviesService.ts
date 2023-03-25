@@ -25,3 +25,29 @@ export const moviesResponseById = (id: string | undefined): Promise<any> => {
     return fetch(request)
         .then((response) => response.json())
 }
+
+export const moviesPersonResponseById = (limit: number, query: string | undefined): Promise<any> => {
+    const URL = `https://api.kinopoisk.dev/v1/movie?${query}&limit=${limit}`;
+    const request = new Request(URL, {
+        method: "GET",
+        headers: {
+            "X-API-KEY": `${API_KEY}`,
+        },
+    });
+
+    return fetch(request)
+        .then((response) => response.json())
+}
+
+export const personResponseById = (id: string | undefined): Promise<any> => {
+    const URL = `https://api.kinopoisk.dev/v1/person/${id}`
+    const request = new Request(URL, {
+        method: "GET",
+        headers: {
+            "X-API-KEY": `${API_KEY}`
+        }
+    })
+
+    return fetch(request)
+        .then((response) => response.json())
+}

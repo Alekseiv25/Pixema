@@ -7,6 +7,7 @@ import NewPassword from "../pages/newPassword"
 import NotFound from "../pages/notFound"
 import ResetPassword from "../pages/resetPassword"
 import SelectedMovie from "../pages/selectedMovie"
+import SelectedPerson from "../pages/selectedPerson"
 import Settings from "../pages/settings"
 import SignIn from "../pages/signIn"
 import SignUp from "../pages/signUp"
@@ -27,6 +28,9 @@ const Router = () => {
                 <Route index element={<Main />} />
                 <Route path="film/">
                     <Route path=":id" element={<SelectedMovie />} />
+                </Route>
+                <Route path="name/">
+                    <Route path=":id" element={<SelectedPerson />} />
                 </Route>
                 <Route path='*' element={<NotFound />} />
             </Route>

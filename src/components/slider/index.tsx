@@ -1,6 +1,7 @@
 import { ReactNode, useRef } from "react";
 import SwiperClass, { Navigation } from "swiper";
 import { Swiper } from "swiper/react";
+import SliderButton from "../buttons/sliderButton";
 import './swiper.scss'
 
 const breakpoints = {
@@ -62,9 +63,9 @@ const Slider = ({ children, title }: ISlider) => {
                 className='sttabs_layout__title_block'
             >
                 <h2 >{title}</h2>
-                <div className='swiper_buttons'>
-                    {/* <SliderBtn dir="left" ref={navigationPrevRef} />
-                    <SliderBtn dir="right" ref={navigationNextRef} /> */}
+                <div className='swiper-buttons'>
+                    <SliderButton dir="left" ref={navigationPrevRef} />
+                    <SliderButton dir="right" ref={navigationNextRef} />
                 </div>
             </div>
             <Swiper

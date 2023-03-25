@@ -14,7 +14,7 @@ interface ITabsLayout {
     title?: string;
 }
 
-const TabsLayout = ({ roles, sequels, similars, title, }: ITabsLayout) => {
+const TabsLayout = ({ roles, sequels, similars, title, personMovies }: ITabsLayout) => {
     return (
         <div className={styles.tabs_layout}>
             <Slider title={title}>
@@ -34,14 +34,14 @@ const TabsLayout = ({ roles, sequels, similars, title, }: ITabsLayout) => {
                             </SwiperSlide>
                         );
                     })}
-                {/* {personMovies &&
+                {personMovies &&
                     personMovies?.map((item) => {
                         return (
                             <SwiperSlide key={item.id}>
-                                <PersonMovie docs={item} key={item.id} />
+                                <MovieCard docs={item} key={item.id} />
                             </SwiperSlide>
                         );
-                    })} */}
+                    })}
                 {sequels &&
                     sequels?.map((item) => {
                         return (
