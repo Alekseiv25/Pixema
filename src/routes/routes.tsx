@@ -6,6 +6,7 @@ import Main from "../pages/main"
 import NewPassword from "../pages/newPassword"
 import NotFound from "../pages/notFound"
 import ResetPassword from "../pages/resetPassword"
+import Search from "../pages/search"
 import SelectedMovie from "../pages/selectedMovie"
 import SelectedPerson from "../pages/selectedPerson"
 import Settings from "../pages/settings"
@@ -32,6 +33,7 @@ const Router = () => {
                 <Route path="name/">
                     <Route path=":id" element={<SelectedPerson />} />
                 </Route>
+                <Route path='search/:name' element={<Search />} />
                 <Route path='*' element={<NotFound />} />
             </Route>
         </Routes>

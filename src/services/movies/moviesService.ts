@@ -51,3 +51,16 @@ export const personResponseById = (id: string | undefined): Promise<any> => {
     return fetch(request)
         .then((response) => response.json())
 }
+
+export const moviesResponseBySearch = (limit: number, query: string | undefined): Promise<any> => {
+    const URL = `https://api.kinopoisk.dev/v1/movie?search=${query}&field=name&limit=${limit}`
+    const request = new Request(URL, {
+        method: "GET",
+        headers: {
+            "X-API-KEY": `${API_KEY}`
+        }
+    })
+
+    return fetch(request)
+        .then((response) => response.json())
+}
