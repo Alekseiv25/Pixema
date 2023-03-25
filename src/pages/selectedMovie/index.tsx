@@ -157,7 +157,7 @@ export const SelectedMovie = () => {
                         <img src={movie.poster?.url} alt="movie poster" />
                     </div>
                     <div className={styles.buttons_group}>
-                        <FavoriteButton id={id} />
+                        <FavoriteButton movie={movie} />
                     </div>
                 </div>
                 <div className={styles.top_container}>

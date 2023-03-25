@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Activation from "../pages/activation"
 import Confirmation from "../pages/confirmation"
+import Favorites from "../pages/favorites"
 import Layout from "../pages/layout/Layout"
 import Main from "../pages/main"
 import NewPassword from "../pages/newPassword"
@@ -34,6 +35,7 @@ const Router = () => {
                     <Route path=":id" element={<SelectedPerson />} />
                 </Route>
                 <Route path='search/:name' element={<Search />} />
+                <Route path='favorites' element={<Favorites />} />
                 <Route path='*' element={<NotFound />} />
             </Route>
         </Routes>

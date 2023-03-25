@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { authReducer } from "./reducers/authReducer/reducer";
+import favoriteReducer from "./reducers/favoritesReducer/reducer";
 import moviesListReducer from "./reducers/moviesReducer/reducer";
 import registerReducer from "./reducers/registerReducer/reducer";
 import { resetReducer } from "./reducers/resetReducer/reducer";
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     reset: resetReducer,
     movies: moviesListReducer,
     selectedMovie: selectedMovieReducer,
-    selectedPerson: selectedPersonReducer
+    selectedPerson: selectedPersonReducer,
+    favoritesMovies: favoriteReducer,
 })
 
 export default rootReducer
