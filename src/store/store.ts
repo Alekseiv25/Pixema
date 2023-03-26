@@ -17,7 +17,7 @@ import storage from 'redux-persist/lib/storage'
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth', 'register', 'favoritesMovies', 'changeTheme'],
+    whitelist: ['auth', 'register', 'favoritesMovies', 'changeTheme', ],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

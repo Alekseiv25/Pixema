@@ -1,4 +1,4 @@
-import { moviesResponseById } from "../../../services/movies/moviesService";
+import { moviesResponseById, randomMovie } from "../../../services/movies/moviesService";
 import { IMovie } from "../../../types/movieTypes";
 import { GlobalDispatch } from "../../store";
 import { LOAD_SELECTED_MOVIE } from "./constants";
@@ -15,6 +15,12 @@ const loadSelectedMovieAsyncAction = (id: string | undefined): any => {
     return (dispatch: GlobalDispatch) => {
         moviesResponseById(id).then((movie: IMovie) => dispatch(loadSelectedMovieAction(movie)))
     }
+}
+
+export const loadRandomMovieAsyncAction = (): any => {
+    return (dispatch: GlobalDispatch) => [
+        randomMovie().then((movie: IMovie) => dispatch(loadSelectedMovieAction(movie)))
+    ]
 }
 
 export default loadSelectedMovieAsyncAction

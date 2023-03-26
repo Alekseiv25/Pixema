@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { Outlet, useLocation, useParams } from "react-router-dom"
+import BackgroundMovie from "../../components/backgroundMovie"
 import Footer from "../../components/footer"
 import Header from "../../components/header"
 import { changeThemeSelector, toggleFilterSelector } from "../../store/selectors/selectors"
@@ -21,6 +22,7 @@ const Layout = () => {
                 ? 'bg-app app' : 'app' && theme ? 'light bg-app-light  app' : 'app'
         }>
             <Header />
+            {location.pathname === '/' && <BackgroundMovie />}
             <main className="wrapper">
                 <Outlet />
             </main>
