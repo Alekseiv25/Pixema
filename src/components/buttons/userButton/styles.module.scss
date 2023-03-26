@@ -54,17 +54,23 @@
 
 .light {
     span {
-        color: $background-black
+        color: $background-black !important
     }
 
     button {
-        color: $background-black
+        color: $background-black !important
+    }
+    svg path {
+        stroke: $background-black;
+
     }
 }
+
 svg {
     transition: 0.3s;
 }
+
 .active_arrow {
-    
+
     transform: scale(1, -1);
 }

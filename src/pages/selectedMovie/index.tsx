@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+import { LazyLoaderSvg } from "../../assets/svg/lazyLoaderSVG"
 
 import AgeRating from "../../components/ageRating"
 import FavoriteButton from "../../components/buttons/favoriteButton"
@@ -13,12 +14,13 @@ import TabsLayout from "../../components/tabs/tabsLayout"
 import Time from "../../components/time"
 import { getRandomInt } from "../../helpers/getRandomInt"
 import loadSelectedMovieAsyncAction from "../../store/reducers/selectedMovieReducer/actions"
-import { selectedMovieSelector } from "../../store/selectors/selectors"
+import { changeThemeSelector, selectedMovieSelector } from "../../store/selectors/selectors"
 import { IMovie, IMoviePerson, IMovieSimilar } from "../../types/movieTypes"
 import styles from './styles.module.scss'
 
 export const SelectedMovie = () => {
     const { id } = useParams()
+    const theme = useSelector(changeThemeSelector)
     const movie = useSelector(selectedMovieSelector)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -146,11 +148,13 @@ export const SelectedMovie = () => {
         },
     ];
 
-
+    if (!movie.id) {
+        return <LazyLoaderSvg />
+    }
 
 
     return (
-        <div className={styles.movie_container}>
+        <div className={theme ? `${styles.movie_container} ${styles.light}` : `${styles.movie_container}`}>
             <div className={styles.content}>
                 <div className={styles.left_container}>
                     <div className={styles.img_container}>

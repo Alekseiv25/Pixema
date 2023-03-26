@@ -104,3 +104,14 @@
         margin-top: 20px;
     }
 }
+
+.light {
+
+    p,
+    h2,
+    h3,
+    h1,
+    li {
+        color: $background-black !important
+    }
+}

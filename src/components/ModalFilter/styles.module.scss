@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .modal_container {
     width: 100%;
     height: 100vh;
@@ -42,6 +44,8 @@
         @media (max-width: 340px) {
             align-items: center;
         }
+
+
 
         &.active {
             right: 0;
@@ -150,7 +154,10 @@
             .modal_rating_container,
             .modal_years_container {
                 display: flex;
-
+                input {
+                    background: $background-graphite !important;
+                    border: 0 !important;
+                }
                 input {
                     width: 95%;
                 }

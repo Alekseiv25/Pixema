@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { favoritesMoviesSelector } from "../../store/selectors/selectors"
+import { changeThemeSelector, favoritesMoviesSelector } from "../../store/selectors/selectors"
 import { IMovieProps } from "../../types/movieTypes"
 import SmallFavoriteButton from "../buttons/smallFavoriteButton"
 import Genres from "../genres"
@@ -8,14 +8,14 @@ import Rating from "../rating"
 import styles from './styles.module.scss'
 
 const MovieCard = ({ docs }: IMovieProps) => {
-
+    const theme = useSelector(changeThemeSelector)
     const favoritemovies = useSelector(favoritesMoviesSelector)
     const isFavoritePost = (favoriteMoviesId: number | undefined) => {
         return favoritemovies.find((movie) => movie.id === favoriteMoviesId);
     };
 
     return (
-        <div className={styles.movie_card}>
+        <div className={theme ? `${styles.movie_card} ${styles.light}` : `${styles.movie_card}`}>
             <div className={styles.movie_makers}>
                 <Rating rating={docs?.rating} />
                 {isFavoritePost(docs?.id) && <SmallFavoriteButton movie={docs!} />}

@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .movies_container {
     h1 {
         color: white;
@@ -33,14 +35,20 @@
             color: #fff;
             cursor: pointer;
             transition: 0.3s ease;
-            background-color: #7b61ff;
+            background-color: $primary-color;
             margin: 0 auto;
 
             &:hover {
-                background-color: #917cff;
+                background-color: $primary-color-2;
                 transform: perspective(100px) translateZ(3px);
             }
 
         }
+    }
+}
+
+.light {
+    h1 {
+        color: $background-black !important
     }
 }

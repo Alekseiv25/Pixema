@@ -49,7 +49,7 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 378px;
+        height: 358px;
         background-color: rgba(#000, 0);
         transition: 0.3s ease;
 
@@ -98,5 +98,12 @@
             transition: 0.3s ease;
             margin-bottom: 4px;
         }
+    }
+}
+
+
+.light {
+    h2, p {
+        color: $background-black !important
     }
 }

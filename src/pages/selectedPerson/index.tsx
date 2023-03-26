@@ -2,23 +2,24 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { LazyLoaderSvg } from '../../assets/svg/lazyLoaderSVG'
 import Facts from '../../components/facts'
 import Tabs from '../../components/tabs'
 import TabsLayout from '../../components/tabs/tabsLayout'
 import { convertTimeToDate } from '../../helpers/convertTimeToDate'
 import { loadMoviesByIdAsyncAction } from '../../store/reducers/moviesReducer/actions'
 import { loadSelectedPersonAsyncAction } from '../../store/reducers/selectedPersonReducer/actions'
-import { moviesSelector, selectedPersonSelector } from '../../store/selectors/selectors'
+import { changeThemeSelector, moviesSelector, selectedPersonSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 const SelectedPerson = () => {
     const { id } = useParams()
+    const theme = useSelector(changeThemeSelector)
     const person = useSelector(selectedPersonSelector)
     const movies = useSelector(moviesSelector)
     const dispatch = useDispatch()
     const countFilms = Number(person.movies?.length) - 1;
     const query = person.movies?.map((el) => `search=${el.id}&field=id`).join("&");
-    console.log(query);
     const limit = countFilms + 1
 
     useEffect(() => {
@@ -80,10 +81,12 @@ const SelectedPerson = () => {
             condition: person.facts?.length,
         },
     ];
-
+    if (!person.id) {
+        return <LazyLoaderSvg />
+    }
 
     return (
-        <div className={styles.movie_container}>
+        <div className={theme ? `${styles.movie_container} ${styles.light}` : `${styles.movie_container}`}>
             <div className={styles.content}>
                 <div className={styles.left_container}>
                     <div className={styles.img_container}>
