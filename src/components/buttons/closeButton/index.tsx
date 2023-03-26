@@ -1,0 +1,19 @@
+import { useDispatch } from "react-redux"
+import CrossSvg from "../../../assets/svg/crossSVG"
+import { toggleFilterAction } from "../../../store/reducers/toggleFilter/reducer"
+import styles from './styles.module.scss'
+
+const CloseButton = () => {
+
+    const dispatch = useDispatch()
+    const toggleFilter = () => {
+        dispatch(toggleFilterAction())
+    }
+    return (
+        <button onClick={toggleFilter} className={styles.close_button}>
+            <CrossSvg />
+        </button>
+    )
+}
+
+export default CloseButton

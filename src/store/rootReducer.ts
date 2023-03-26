@@ -9,6 +9,7 @@ import { selectedPersonReducer } from "./reducers/selectedPersonReducer/reducer"
 
 import { themeReducer } from "./reducers/themeReducer/reducer";
 import burgerMenuReducer from "./reducers/toggleBurgerReducer/reducer";
+import toggleFilterReducer from "./reducers/toggleFilter/reducer";
 
 const rootReducer = combineReducers({
     toggleBurger: burgerMenuReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     selectedMovie: selectedMovieReducer,
     selectedPerson: selectedPersonReducer,
     favoritesMovies: favoriteReducer,
+    toggleFilter: toggleFilterReducer
 })
 
 export default rootReducer

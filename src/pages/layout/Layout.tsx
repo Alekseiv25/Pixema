@@ -2,14 +2,15 @@ import { useSelector } from "react-redux"
 import { Outlet, useLocation, useParams } from "react-router-dom"
 import Footer from "../../components/footer"
 import Header from "../../components/header"
-import { changeThemeSelector } from "../../store/selectors/selectors"
+import { changeThemeSelector, toggleFilterSelector } from "../../store/selectors/selectors"
 
 const Layout = () => {
     const location = useLocation()
     const theme = useSelector(changeThemeSelector)
     const { uid, token } = useParams()
+    const toggleFilter = useSelector(toggleFilterSelector)
     return (
-        <div className={
+        <div style={{ 'overflowY': toggleFilter ? 'hidden' : 'auto' }} className={
             location.pathname === '/signin' ||
                 location.pathname === '/signup' ||
                 location.pathname === '/reset' ||

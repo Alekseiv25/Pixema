@@ -3,6 +3,7 @@ import BurgerMenu from '../burgerMenu'
 import BurgerButton from '../buttons/burgerButton'
 import LogoButton from '../buttons/logoButton'
 import UserButton from '../buttons/userButton'
+import ModalFilter from '../ModalFilter'
 import SearchBar from './searchBar'
 import styles from './styles.module.scss'
 
@@ -29,6 +30,7 @@ const Header = () => {
                 <UserButton />
             </header>
             <BurgerMenu />
+            <ModalFilter />
         </ >
     )
 }
