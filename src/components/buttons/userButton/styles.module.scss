@@ -6,6 +6,19 @@
     position: relative;
     z-index: 500;
 
+    @media (max-width: 1064px) {
+        .user_info {
+            
+            span {
+                display: none;
+            }
+        }
+
+        svg {
+            display: none;
+        }
+    }
+
     .user_container {
         font-size: 16px;
         font-weight: 500;
@@ -42,6 +55,10 @@
                 font-size: 16px;
                 font-weight: 500;
                 cursor: pointer;
+
+                @media (max-width: 768px) {
+                    margin-right: 0px;
+                }
             }
 
             span {
@@ -61,6 +78,7 @@
     button {
         color: $background-black !important
     }
+
     svg path {
         stroke: $background-black;
 

@@ -40,7 +40,7 @@ const Search = () => {
                 {movies.map((item) => <MovieCard key={item.id} docs={item} />)}
             </div>
             <div className={styles.movies_footer}>
-                {movies.length >= 10 && <button onClick={() => setLimit(limit + count)}>Показать ещё</button>}
+                {movies.length >= 8 && <button onClick={() => setLimit(limit + count)}>Показать ещё</button>}
             </div>
         </div>
     )

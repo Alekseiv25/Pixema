@@ -13,7 +13,6 @@ const Movies = () => {
     const movies = useSelector(moviesSelector)
     const [limit, setLimit] = useState(10)
     const [count, setCount] = useState(10);
-    // const count = 10
     useEffect(() => {
         if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 1024) {
             setLimit(8);

@@ -10,6 +10,10 @@
         display: flex;
         gap: 20px;
 
+        @media (max-width: 600px) {
+            flex-direction: column;
+        }
+
         .react-tabs__tab {
             list-style-type: none;
             color: #fff;

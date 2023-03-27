@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
+import MediaQuery from "react-responsive"
 import { useParams } from "react-router-dom"
 import { LazyLoaderSvg } from "../../assets/svg/lazyLoaderSVG"
 
@@ -157,6 +158,17 @@ export const SelectedMovie = () => {
         <div className={theme ? `${styles.movie_container} ${styles.light}` : `${styles.movie_container}`}>
             <div className={styles.content}>
                 <div className={styles.left_container}>
+                    <MediaQuery maxWidth={880}>
+                        <div className={styles.genres_container}>
+                            <Genres genres={movie.genres} />
+                        </div>
+                        <h1 className={styles.movie_name}>{movie.name ? movie.name : movie.enName}</h1>
+                        <div className={styles.movie_markers}>
+                            <Rating rating={movie.rating} />
+                            <Time movieLength={movie.movieLength} />
+                            <AgeRating ageRating={movie.ageRating} />
+                        </div>
+                    </MediaQuery>
                     <div className={styles.img_container}>
                         <img src={movie.poster?.url} alt="movie poster" />
                     </div>
@@ -165,18 +177,22 @@ export const SelectedMovie = () => {
                     </div>
                 </div>
                 <div className={styles.top_container}>
-                    <div className={styles.genres_container}>
-                        <Genres genres={movie.genres} />
-                    </div>
-                    <h1 className={styles.movie_name}>{movie.name ? movie.name : movie.enName}</h1>
-                    <h2 className={styles.movie_altname}>{movie.alternativeName}</h2>
-                    <div className={styles.movie_markers}>
-                        <Rating rating={movie.rating} />
-                        <Time movieLength={movie.movieLength} />
-                        <AgeRating ageRating={movie.ageRating} />
-                    </div>
+
+                    <MediaQuery minWidth={881}>
+                        <div className={styles.genres_container}>
+                            <Genres genres={movie.genres} />
+                        </div>
+                        <h1 className={styles.movie_name}>{movie.name ? movie.name : movie.enName}</h1>
+                        <h2 className={styles.movie_altname}>{movie.alternativeName}</h2>
+                        <div className={styles.movie_markers}>
+                            <Rating rating={movie.rating} />
+                            <Time movieLength={movie.movieLength} />
+                            <AgeRating ageRating={movie.ageRating} />
+                        </div>
+                    </MediaQuery>
                     <div className={styles.info_container}>
                         <p className={styles.movie_description}>
+
                             {movie.description}
                         </p>
                         <div className={styles.column_description}>
@@ -198,11 +214,11 @@ export const SelectedMovie = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <div className={styles.bottom_container}>
                 <Tabs tabs={tabs} />
             </div>
-        </div>
+        </div >
     )
 }
 

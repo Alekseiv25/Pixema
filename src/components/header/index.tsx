@@ -1,3 +1,4 @@
+import MediaQuery from 'react-responsive'
 import { useLocation, useParams } from 'react-router-dom'
 import BurgerMenu from '../burgerMenu'
 import BurgerButton from '../buttons/burgerButton'
@@ -23,13 +24,22 @@ const Header = () => {
                     location.pathname === '/success' ||
                     location.pathname === `/password/reset/confirm/${uid}/${token}` ? `${styles.disable}` : `${styles.header}`}>
                 <div className={styles.left_container}>
-                    <BurgerButton />
+                    <MediaQuery minWidth={769}>
+                        <BurgerButton />
+                    </MediaQuery>
                     <LogoButton />
                 </div>
-                <SearchBar />
+                <MediaQuery minWidth={769}>
+                    <SearchBar />
+                </MediaQuery>
                 <UserButton />
+                <MediaQuery maxWidth={768}>
+                    <SearchBar />
+                </MediaQuery>
             </header>
-            <BurgerMenu />
+            <MediaQuery minWidth={769}>
+                <BurgerMenu />
+            </MediaQuery>
             <ModalFilter />
         </ >
     )

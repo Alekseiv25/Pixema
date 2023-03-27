@@ -5,8 +5,14 @@
     margin: 0 auto;
     padding-top: 20px;
 
+
+
     .content {
         display: flex;
+
+        @media (max-width:880px) {
+            flex-direction: column;
+        }
     }
 
     .left_container {
@@ -16,11 +22,47 @@
         width: 100%;
         gap: 32px;
 
+        h1,
+        h2 {
+            margin: 5px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .genres_container {
+            display: flex;
+
+        }
+
+        .movie_name {
+            color: $white-color
+        }
+
+        .movie_altname {
+            color: $light-color
+        }
+
+        .movie_markers {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width:880px) {
+            max-width: none;
+        }
+
         .img_container {
             img {
                 height: 400px;
                 width: 100%;
                 border-radius: 20px;
+
+                @media (max-width:880px) {
+                    object-fit: cover;
+                    object-position: bottom;
+                }
             }
         }
 
@@ -89,6 +131,7 @@
                         max-width: 1100px;
                         color: $white-color;
                         display: flex;
+                        flex-wrap: wrap;
 
                         p:not(:last-child)::after {
                             content: ', ';

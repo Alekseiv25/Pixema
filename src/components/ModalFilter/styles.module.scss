@@ -281,11 +281,17 @@
                 }
             }
 
-            @media (max-width: 768px) {
+
+
+        }
+
+        @media (max-width: 768px) {
+            button, input {
                 max-width: 434px;
                 width: 100%;
                 min-width: 240px;
             }
+
         }
     }
 }

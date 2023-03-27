@@ -8,10 +8,19 @@
     padding-top: 40px;
     align-items: center;
 
+
+
     @media (max-width: 1760px) {
         padding-left: 100px;
         padding-right: 100px;
     }
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        padding: 0 20px;
+        padding-top: 40px;
+    }
+
 
     .left_container {
         display: flex;

@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux"
+import MediaQuery from "react-responsive"
 import { Outlet, useLocation, useParams } from "react-router-dom"
 import BackgroundMovie from "../../components/backgroundMovie"
+import BurgerMenu from "../../components/burgerMenu"
 import Footer from "../../components/footer"
 import Header from "../../components/header"
 import { changeThemeSelector, toggleFilterSelector } from "../../store/selectors/selectors"
@@ -10,7 +12,7 @@ const Layout = () => {
     const theme = useSelector(changeThemeSelector)
     const { uid, token } = useParams()
     const toggleFilter = useSelector(toggleFilterSelector)
-    return (
+    return (<>
         <div style={{ 'overflowY': toggleFilter ? 'hidden' : 'auto' }} className={
             location.pathname === '/signin' ||
                 location.pathname === '/signup' ||
@@ -27,7 +29,12 @@ const Layout = () => {
                 <Outlet />
             </main>
             <Footer />
+
         </div>
+        <MediaQuery maxWidth={768}>
+            <BurgerMenu />
+        </MediaQuery>
+    </>
     )
 }
 

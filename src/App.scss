@@ -23,9 +23,12 @@
         padding-left: 50px;
         padding-right: 50px;
     }
+
+    @media (max-width: 660px) {
+        padding: 0 20px
+    }
 }
 
 .light {
     background: white;
 }
-

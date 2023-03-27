@@ -31,6 +31,8 @@
     }
 
 
+
+
     a {
         display: flex;
         height: 40px;
@@ -74,4 +76,31 @@
 .active {
     pointer-events: all;
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .burger_menu {
+        position: sticky;
+        align-items: center;
+        border-radius: 0;
+        bottom: -1px;
+        flex-direction: row;
+        height: 100px;
+        justify-content: space-evenly;
+        left: 0;
+        padding: 20px;
+        pointer-events: all;
+        width: 100%;
+        z-index: 9999;
+        opacity: 1;
+
+        a {
+            p {
+
+                margin-left: 3px;
+
+            }
+        }
+    }
+
 }

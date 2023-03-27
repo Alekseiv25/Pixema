@@ -11,7 +11,8 @@
     background-size: cover;
 
     @media (max-width: 768px) {
-        top: -200px;
+        top: -20px;
+        background-position: center;
     }
 
     .container_container {

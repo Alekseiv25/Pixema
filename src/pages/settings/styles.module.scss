@@ -21,9 +21,7 @@
         margin-bottom: 15px;
     }
 
-    .input_container {
-        width: 49%;
-    }
+
 
     .form_container {
         transition: 0.5s all;
@@ -34,6 +32,20 @@
         border-radius: 10px;
         margin-bottom: 40px;
         border: 2px solid transparent;
+
+        .input_container {
+            width: 49%;
+        }
+
+        @media (max-width: 660px) {
+            flex-direction: column;
+
+            .input_container {
+
+                width: 100%;
+
+            }
+        }
     }
 
     .theme_container {

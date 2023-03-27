@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import MediaQuery from 'react-responsive'
 import { useParams } from 'react-router-dom'
 import { LazyLoaderSvg } from '../../assets/svg/lazyLoaderSVG'
 import Facts from '../../components/facts'
@@ -89,13 +90,19 @@ const SelectedPerson = () => {
         <div className={theme ? `${styles.movie_container} ${styles.light}` : `${styles.movie_container}`}>
             <div className={styles.content}>
                 <div className={styles.left_container}>
+                    <MediaQuery maxWidth={880}>
+                        <h1 className={styles.movie_name}>{person.name}</h1>
+                        <h2 className={styles.movie_altname}>{person.enName}</h2>
+                    </MediaQuery>
                     <div className={styles.img_container}>
                         <img src={person.photo} alt="person poster" />
                     </div>
                 </div>
                 <div className={styles.top_container}>
-                    <h1 className={styles.movie_name}>{person.name}</h1>
-                    <h2 className={styles.movie_altname}>{person.enName}</h2>
+                    <MediaQuery minWidth={881}>
+                        <h1 className={styles.movie_name}>{person.name}</h1>
+                        <h2 className={styles.movie_altname}>{person.enName}</h2>
+                    </MediaQuery>
                     <div className={styles.info_container}>
                         <div className={styles.column_description}>
                             {items.map(

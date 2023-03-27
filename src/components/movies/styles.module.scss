@@ -8,10 +8,20 @@
         padding-right: 50px;
     }
 
+    @media (max-width: 660px) {
+        padding: 0px;
+    }
+
     h1 {
         color: white;
         padding-top: 20px;
         padding-left: 20px;
+        display: flex;
+
+        @media (max-width: 768px) {
+            justify-content: center;
+            text-align: center;
+        }
     }
 
     .movies_block {
@@ -20,6 +30,10 @@
         justify-content: space-between;
         flex-wrap: wrap;
         padding-top: 50px;
+
+        @media (max-width: 768px) {
+            justify-content: center;
+        }
     }
 
     .movies_footer {
@@ -44,6 +58,12 @@
             transition: 0.3s ease;
             background-color: $primary-color;
             margin: 0 auto;
+
+            @media (max-width:768px) {
+                min-width: auto;
+                padding: 0px;
+                width: 100%;
+            }
 
             &:hover {
                 background-color: $primary-color-2;
