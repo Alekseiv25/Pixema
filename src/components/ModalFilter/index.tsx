@@ -60,8 +60,9 @@ const ModalFilter = () => {
     } else {
         document.body.style.overflow = 'auto'
     }
+
     return (
-        <div className={toggleFilter ? `${styles.modal_container} ${styles.active}` : `${styles.modal_container}`}>
+        <div  className={toggleFilter ? `${styles.modal_container} ${styles.active}` : `${styles.modal_container}`}>
             <div className={toggleFilter ? `${styles.modal_content} ${styles.active}` : `${styles.modal_content}`}>
                 <div className={styles.modal_header}>
                     <h2>Фильтр</h2>

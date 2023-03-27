@@ -36,6 +36,7 @@
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         flex-direction: column;
+        pointer-events: none;
 
         @media (max-width: 768px) {
             max-width: 100%;
@@ -52,6 +53,7 @@
         &.active {
             right: 0;
             transition: 0.3s;
+            pointer-events: all;
         }
     }
 

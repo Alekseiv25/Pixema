@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../../../assets/svg/logo'
-import { changeThemeSelector } from '../../../store/selectors/selectors'
+import { changeThemeSelector, toggleBurgerSelector } from '../../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 interface IProps {
@@ -10,11 +10,13 @@ interface IProps {
 
 const LogoButton = (props: IProps) => {
     const { className } = props
+    const location = useLocation()
     const navigate = useNavigate()
     const theme = useSelector(changeThemeSelector)
+    const burger = useSelector(toggleBurgerSelector)
 
     return (
-        <button onClick={() => navigate('/')} className={theme ?  `${className} ${styles.logo_button}   ${styles.light}`  : `${styles.logo_button} ${className}`}>
+        <button onClick={() => navigate('/')} className={(theme ? `${className} ${styles.logo_button} ${location.pathname !== '/' && !burger ? `${styles.light}` : ''}` : `${styles.logo_button} ${className}`)}>
             <Logo />
         </button>
     )
