@@ -1,9 +1,10 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
-import { loadRandomMovieAsyncAction } from "../../store/reducers/selectedMovieReducer/actions"
-import { selectedMovieSelector } from "../../store/selectors/selectors"
+import { todayDate } from "../../helpers/todayDate"
+import { loadBackgroundMovieAsyncAction } from "../../store/reducers/backgroundMovie/actions"
+import { backogroundMovieSelector } from "../../store/selectors/selectors"
 import AgeRating from "../ageRating"
 import Genres from "../genres"
 import Rating from "../rating"
@@ -11,33 +12,17 @@ import styles from './styles.module.scss'
 
 const BackgroundMovie = () => {
     const dispatch = useDispatch()
-
+    const movie = useSelector(backogroundMovieSelector)
+    const [oldDate, setOldDate] = useState(
+        localStorage.getItem("oldDate") || `${todayDate() - 1}`
+    );
     useEffect(() => {
-        dispatch(loadRandomMovieAsyncAction())
-    }, [dispatch])
-    const movie = useSelector(selectedMovieSelector)
-
-
-    // const [bgVideo, setBgVideo] = useState(
-    //     localStorage.getItem("bgVideo") || ''
-    // );
-    // const [oldDate, setOldDate] = useState(
-    //     localStorage.getItem("oldDate") || `${todayDate() - 1}`
-    // );
-
-    // useEffect(() => {
-    //     if (oldDate !== `${todayDate()}`) {
-    //         dispatch(loadRandomMovieAsyncAction())
-
-    //         setBgVideo(JSON.stringify(movie))
-    //         console.log(bgVideo)
-    //         setOldDate(`${todayDate()}`);
-    //     }
-    //     localStorage.setItem("bgVideo", bgVideo);
-    //     localStorage.setItem("oldDate", oldDate);
-    // }, [bgVideo, oldDate, dispatch,]);
-
-
+        if (oldDate !== `${todayDate()}`) {
+            dispatch(loadBackgroundMovieAsyncAction())
+            setOldDate(`${todayDate()}`);
+        }
+        localStorage.setItem("oldDate", oldDate);
+    }, [dispatch, oldDate])
 
     return (
         <>

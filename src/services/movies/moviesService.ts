@@ -77,3 +77,17 @@ export const randomMovie = () => {
     return fetch(request)
         .then((response) => response.json())
 }
+
+export const movieFilter = (query: string, limit: number): Promise<any> => {
+    const URL = `https://api.kinopoisk.dev/v1/movie?${query}&limit=${limit}`
+    const request = new Request(URL, {
+        method: "GET",
+        headers: {
+            "X-API-KEY": `${API_KEY}`
+        }
+    })
+    console.log(request)
+
+    return fetch(request)
+        .then((response) => response.json())
+}

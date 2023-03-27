@@ -2,12 +2,13 @@ import styles from './styles.module.scss'
 
 interface IProps {
     value: string
+    onClick?: () => void
 }
 const Submit = (props: IProps) => {
-const {value} = props
+    const { value, onClick } = props
 
     return (
-        <input type="submit" value={value} className={styles.submit} />
+        <input type="submit" onClick={onClick} value={value} className={styles.submit} />
     )
 }
 

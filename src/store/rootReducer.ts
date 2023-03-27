@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import { authReducer } from "./reducers/authReducer/reducer";
+import backgroundMovieReducer from "./reducers/backgroundMovie/reducer";
 import favoriteReducer from "./reducers/favoritesReducer/reducer";
+import { filterReducer } from "./reducers/filter/reducer";
 import moviesListReducer from "./reducers/moviesReducer/reducer";
 import registerReducer from "./reducers/registerReducer/reducer";
 import { resetReducer } from "./reducers/resetReducer/reducer";
@@ -21,7 +23,9 @@ const rootReducer = combineReducers({
     selectedMovie: selectedMovieReducer,
     selectedPerson: selectedPersonReducer,
     favoritesMovies: favoriteReducer,
-    toggleFilter: toggleFilterReducer
+    toggleFilter: toggleFilterReducer,
+    backgroundMovie: backgroundMovieReducer,
+    filter: filterReducer
 })
 
 export default rootReducer

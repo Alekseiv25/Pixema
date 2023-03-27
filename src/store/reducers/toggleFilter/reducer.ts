@@ -22,6 +22,7 @@ const toggleFilterReducer = (state: IBurgerState = defaultValue, action: IBaseAc
         case TOGGLE_FILTER:
             return {
                 isOpen: !state.isOpen
+                
             }
         default:
             return state

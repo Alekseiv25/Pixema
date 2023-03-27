@@ -18,17 +18,13 @@ const Movies = () => {
         if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 1024) {
             setLimit(8);
             setCount(8);
-            console.log(document.documentElement.clientWidth);
-            console.log(document.documentElement.clientWidth)
         } else if (document.documentElement.clientWidth <= 1024 && document.documentElement.clientWidth > 734) {
             setLimit(9);
             setCount(9);
-            console.log(document.documentElement.clientWidth);
 
         } else if (document.documentElement.clientWidth < 735) {
             setLimit(10);
             setCount(10);
-            console.log(document.documentElement.clientWidth);
         }
     }, [limit, count]);
     useEffect(() => {

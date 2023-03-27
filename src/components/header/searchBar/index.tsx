@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {  useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { changeThemeSelector } from '../../../store/selectors/selectors'
@@ -13,6 +13,7 @@ const SearchBar = () => {
     const onChange = (e: any) => {
         setSearchText(e.target.value)
     }
+
 
     const onClick = () => {
         navigate(`/search/${searchText}`,)

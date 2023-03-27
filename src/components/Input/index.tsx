@@ -10,6 +10,7 @@ interface IInputProps {
     value?: string
     className?: string
     defaultValue?: string
+    onChange?: any
 }
 
 const Input = (props: IInputProps) => {
@@ -18,7 +19,9 @@ const Input = (props: IInputProps) => {
         label,
         placeholder,
         name,
-        defaultValue
+        defaultValue,
+        value,
+        onChange
     } = props
     const theme = useSelector(changeThemeSelector)
 
@@ -31,6 +34,8 @@ const Input = (props: IInputProps) => {
                 placeholder={placeholder}
                 name={name}
                 className={styles.input}
+                value={value}
+                onChange={onChange}
             />
         </div>
     )
