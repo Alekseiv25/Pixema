@@ -3,8 +3,8 @@ import MediaQuery from 'react-responsive'
 import { Outlet, useLocation, useParams } from 'react-router-dom'
 import BackgroundMovie from '../../components/BackgroundMovie'
 import BurgerMenu from '../../components/BurgerMenu'
-import Footer from '../../components/Footer_'
-import Header from '../../components/Header_'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
 import { changeThemeSelector, toggleFilterSelector } from '../../store/selectors/selectors'
 
 const Layout = () => {

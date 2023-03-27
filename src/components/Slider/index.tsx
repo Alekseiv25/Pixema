@@ -1,7 +1,7 @@
 import { ReactNode, useRef } from 'react'
 import SwiperClass, { Navigation } from 'swiper'
 import { Swiper } from 'swiper/react'
-import SliderButton from '../buttons/SliderButton_'
+import SliderButton from '../buttons/SliderButton'
 import './swiper.scss'
 
 const breakpoints = {

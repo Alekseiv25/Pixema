@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { changeThemeSelector } from '../../../store/selectors/selectors'
-import FilterButton from '../../buttons/FilterButton_'
-import SearchButton from '../../buttons/SearchButton_'
+import FilterButton from '../../buttons/FilterButton'
+import SearchButton from '../../buttons/SearchButton'
 import styles from './styles.module.scss'
 
 const SearchBar = () => {

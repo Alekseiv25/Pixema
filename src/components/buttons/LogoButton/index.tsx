@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
-import LogoSvg from '../../../assets/svg/LogoSvg_'
+import LogoSvg from '../../../assets/svg/LogoSvg'
 import { changeThemeSelector, toggleBurgerSelector } from '../../../store/selectors/selectors'
 import styles from './styles.module.scss'
 

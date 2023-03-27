@@ -3,9 +3,9 @@ import { useLocation, useParams } from 'react-router-dom'
 import BurgerMenu from '../BurgerMenu'
 import BurgerButton from '../buttons/BurgerButton'
 import LogoButton from '../buttons/LogoButton'
-import UserButton from '../buttons/UserButton_'
-import ModalFilter from '../ModalFilter_'
-import SearchBar from './SearchBar_'
+import UserButton from '../buttons/UserButton'
+import ModalFilter from '../ModalFilter'
+import SearchBar from './SearchBar'
 import styles from './styles.module.scss'
 
 const Header = () => {

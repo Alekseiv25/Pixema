@@ -1,4 +1,4 @@
-import Movies from '../../components/Movies_'
+import Movies from '../../components/Movies'
 import styles from './styles.module.scss'
 
 const Main = () => {

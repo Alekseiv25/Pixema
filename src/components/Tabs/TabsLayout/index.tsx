@@ -1,8 +1,8 @@
 import { SwiperSlide } from 'swiper/react'
 import { IMovie, IMoviePerson, IMovieSimilar } from '../../../types/movie'
 import MovieCard from '../../MovieCard'
-import Slider from '../../Slider_'
-import PersonTab from './PersonTab_'
+import Slider from '../../Slider'
+import PersonTab from './PersonTab'
 import styles from './styles.module.scss'
 
 interface ITabsLayout {
