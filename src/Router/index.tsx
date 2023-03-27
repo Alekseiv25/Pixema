@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import Activation from '../pages/Activation'
+import Activation from '../pages/Activation_'
 import Confirmation from '../pages/Confirmation'
 import Favorites from '../pages/Favorites'
 import Filter from '../pages/Filter'
