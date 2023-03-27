@@ -1,7 +1,7 @@
-import { ReactNode, useRef } from "react";
-import SwiperClass, { Navigation } from "swiper";
-import { Swiper } from "swiper/react";
-import SliderButton from "../buttons/sliderButton";
+import { ReactNode, useRef } from 'react'
+import SwiperClass, { Navigation } from 'swiper'
+import { Swiper } from 'swiper/react'
+import SliderButton from '../buttons/sliderButton'
 import './swiper.scss'
 
 const breakpoints = {
@@ -30,33 +30,33 @@ const breakpoints = {
         slidesPerView: 5,
         spaceBetween: 30,
     },
-};
+}
 
 interface ISlider {
-    children: ReactNode;
-    title?: string;
+    children: ReactNode
+    title?: string
 }
 
 const Slider = ({ children, title }: ISlider) => {
-    const navigationPrevRef = useRef<HTMLButtonElement>(null);
-    const navigationNextRef = useRef<HTMLButtonElement>(null);
+    const navigationPrevRef = useRef<HTMLButtonElement>(null)
+    const navigationNextRef = useRef<HTMLButtonElement>(null)
 
     const navigation = {
         prevEl: navigationPrevRef.current,
         nextEl: navigationNextRef.current,
-    };
+    }
 
     const onSwiper = (swiper: SwiperClass) => {
         // @ts-ignore
-        swiper.params.navigation.prevEl = navigationPrevRef.current;
+        swiper.params.navigation.prevEl = navigationPrevRef.current
         // @ts-ignore
-        swiper.params.navigation.nextEl = navigationNextRef.current;
+        swiper.params.navigation.nextEl = navigationNextRef.current
 
         //   Re-init navigation
-        swiper.navigation.destroy();
-        swiper.navigation.init();
-        swiper.navigation.update();
-    };
+        swiper.navigation.destroy()
+        swiper.navigation.init()
+        swiper.navigation.update()
+    }
     return (
         <>
             <div
@@ -64,8 +64,8 @@ const Slider = ({ children, title }: ISlider) => {
             >
                 <h2 >{title}</h2>
                 <div className='swiper-buttons'>
-                    <SliderButton dir="left" ref={navigationPrevRef} />
-                    <SliderButton dir="right" ref={navigationNextRef} />
+                    <SliderButton dir='left' ref={navigationPrevRef} />
+                    <SliderButton dir='right' ref={navigationNextRef} />
                 </div>
             </div>
             <Swiper
@@ -81,7 +81,7 @@ const Slider = ({ children, title }: ISlider) => {
                 {children}
             </Swiper>
         </>
-    );
-};
+    )
+}
 
-export default Slider;
+export default Slider

@@ -1,11 +1,11 @@
-import "./app.scss"
-import "@fontsource/exo-2";
-import Router from "./routes/routes";
+import './styles/app.scss'
+import '@fontsource/exo-2'
+import Router from './Router'
 
 function App() {
   return (
-      <Router />
-  );
+    <Router />
+  )
 }
 
-export default App;
+export default App

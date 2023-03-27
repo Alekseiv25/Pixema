@@ -1,5 +1,5 @@
 import { forwardRef } from "react"
-import SliderArrowSVG from "../../../assets/svg/sliderArrowSVG";
+import SliderArrowSvg from "../../../assets/svg/SliderArrowSvg";
 import styles from './styles.module.scss'
 interface SliderBtnProps {
     dir: "left" | "right";
@@ -10,7 +10,7 @@ const SliderButton = forwardRef<HTMLButtonElement, SliderBtnProps>(
         const { dir } = props
         return (
             <button className={dir === 'left' ? `${styles.left_arrow} ${styles.arrow}` : `${styles.arrow}`} ref={ref}>
-                <SliderArrowSVG />
+                <SliderArrowSvg />
             </button>
         );
     }

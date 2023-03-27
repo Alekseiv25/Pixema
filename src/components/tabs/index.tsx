@@ -1,20 +1,20 @@
-import { Fragment, ReactNode } from "react";
-import { Tab, TabList, TabPanel, Tabs as ReactTabs } from "react-tabs";
+import { Fragment, ReactNode } from 'react'
+import { Tab, TabList, TabPanel, Tabs as ReactTabs } from 'react-tabs'
 import './tabs.scss'
 
 interface TabItem {
-    txt?: string;
-    condition?: unknown;
-    content: ReactNode;
+    txt?: string
+    condition?: unknown
+    content: ReactNode
 }
 
 interface TabsProps {
-    tabs: TabItem[];
+    tabs: TabItem[]
 }
 
 const Tabs = ({ tabs }: TabsProps) => {
     return (
-        <ReactTabs className="tabs">
+        <ReactTabs className='tabs'>
             <TabList>
                 {tabs.map((el) => (
                     <Fragment key={el.txt}>
@@ -28,7 +28,7 @@ const Tabs = ({ tabs }: TabsProps) => {
                 </Fragment>
             ))}
         </ReactTabs>
-    );
-};
+    )
+}
 
-export default Tabs;
+export default Tabs

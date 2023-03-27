@@ -1,11 +1,11 @@
 import MediaQuery from 'react-responsive'
 import { useLocation, useParams } from 'react-router-dom'
-import BurgerMenu from '../burgerMenu'
+import BurgerMenu from '../BurgerMenu'
 import BurgerButton from '../buttons/burgerButton'
 import LogoButton from '../buttons/logoButton'
 import UserButton from '../buttons/userButton'
 import ModalFilter from '../ModalFilter'
-import SearchBar from './searchBar'
+import SearchBar from './SearchBar'
 import styles from './styles.module.scss'
 
 const Header = () => {

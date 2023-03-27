@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
-import { IMoviePerson } from "../../../../types/movieTypes";
+import { Link } from 'react-router-dom'
+import { IMoviePerson } from '../../../../types/movie'
 import styles from './styles.module.scss'
 
 interface PersonTabProps {
-    item: IMoviePerson;
+    item: IMoviePerson
 }
 
 const PersonTab = ({ item }: PersonTabProps) => {
-    const { name, id, photo, description } = item;
+    const { name, id, photo, description } = item
 
     return (
         <Link to={`/name/${id}`} className={styles.person}>
@@ -22,7 +22,7 @@ const PersonTab = ({ item }: PersonTabProps) => {
                 <p>{description}</p>
             </div>
         </Link>
-    );
-};
+    )
+}
 
-export default PersonTab;
+export default PersonTab

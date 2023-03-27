@@ -12,8 +12,6 @@
     z-index: 99999;
     overflow: hidden;
 
-
-
     &.active {
         pointer-events: all;
         transition: 0.3s;
@@ -48,8 +46,6 @@
             align-items: center;
         }
 
-
-
         &.active {
             right: 0;
             transition: 0.3s;
@@ -69,8 +65,6 @@
         justify-content: space-between;
         align-items: center;
         min-width: 240px;
-
-
 
         .close-button {
             position: relative;
@@ -109,7 +103,6 @@
                     background-color: #7b61ff;
                     color: white;
                 }
-
 
                 button {
                     padding: 14px 0;
@@ -282,18 +275,16 @@
                     color: #fff;
                 }
             }
-
-
-
         }
 
         @media (max-width: 768px) {
-            button, input {
+
+            button,
+            input {
                 max-width: 434px;
                 width: 100%;
                 min-width: 240px;
             }
-
         }
     }
 }

@@ -2,32 +2,32 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import MovieCard from '../movieCard'
-import loadMoviesListAsyncAction from '../../store/reducers/moviesReducer/actions'
+import { loadMoviesAsyncAction } from '../../store/reducers/movies/actions'
 import { changeThemeSelector, moviesSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
-import { LazyLoaderSvg } from '../../assets/svg/lazyLoaderSVG'
+import LazyLoaderSvg from '../../assets/svg/LazyLoaderSvg'
 
 const Movies = () => {
     const dispatch = useDispatch()
     const theme = useSelector(changeThemeSelector)
     const movies = useSelector(moviesSelector)
     const [limit, setLimit] = useState(10)
-    const [count, setCount] = useState(10);
+    const [count, setCount] = useState(10)
     useEffect(() => {
         if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 1024) {
-            setLimit(8);
-            setCount(8);
+            setLimit(8)
+            setCount(8)
         } else if (document.documentElement.clientWidth <= 1024 && document.documentElement.clientWidth > 734) {
-            setLimit(9);
-            setCount(9);
+            setLimit(9)
+            setCount(9)
 
         } else if (document.documentElement.clientWidth < 735) {
-            setLimit(10);
-            setCount(10);
+            setLimit(10)
+            setCount(10)
         }
-    }, [limit, count]);
+    }, [limit, count])
     useEffect(() => {
-        dispatch(loadMoviesListAsyncAction(limit))
+        dispatch(loadMoviesAsyncAction(limit))
     }, [limit, dispatch])
     if (!movies.length) {
         return <LazyLoaderSvg />

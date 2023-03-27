@@ -1,10 +1,12 @@
-import dayjs from 'dayjs';
-import 'dayjs/locale/ru';
-dayjs.locale('ru');
+import dayjs from 'dayjs'
+import 'dayjs/locale/ru'
+dayjs.locale('ru')
 
-export function convertTimeToDate(
+function convertTimeToDate(
   string: string | number | Date | undefined,
   format: string = 'DD/MM/YYYY'
 ) {
-  return dayjs(string).format(format);
+  return dayjs(string).format(format)
 }
+
+export default convertTimeToDate

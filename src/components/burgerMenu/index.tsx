@@ -1,26 +1,23 @@
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
-import FavoritesSvg from '../../assets/svg/favoritesSVG'
-import HomeSvg from '../../assets/svg/homeSVG'
-import SettingSvg from '../../assets/svg/settingSVG'
+import FavoritesSvg from '../../assets/svg/FavoritesSvg'
+import HomeSvg from '../../assets/svg/HomeSvg'
+import SettingSvg from '../../assets/svg/SettingSvg'
+import { pathnames } from '../../constants/constants'
 import { toggleBurgerSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 const BurgerMenu = () => {
     const location = useLocation()
     const toggleBurger = useSelector(toggleBurgerSelector)
-    const pathnames = [
-        { label: "Главная", value: 'home' },
-        { label: "Избранное", value: 'favorites' },
-        { label: "Настройки", value: 'settings' }
-    ]
 
     return (
         <div className={toggleBurger ? `${styles.burger_menu} ${styles.active}` : `${styles.burger_menu}`}>
             {
                 pathnames.map((path) => (
                     <Link
-                        className={(location.pathname === `/${path.value}` ? `${styles.active_link}` : '') || (location.pathname === `/` && path.value === 'home' ? `${styles.active_link}` : '')}
+                        className={(location.pathname === `/${path.value}` ? `${styles.active_link}` : '')
+                            || (location.pathname === `/` && path.value === 'home' ? `${styles.active_link}` : '')}
                         key={path.value}
                         to={path.value === 'home' ? '/' : `${path.value}`}
                     >

@@ -2,9 +2,9 @@ import { useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import useOutsideClick from "@rooks/use-outside-click";
-import ArrowSvg from '../../../assets/svg/arrowSVG'
+import ArrowSvg from '../../../assets/svg/ArrowSvg'
 import { changeThemeSelector, userSelector } from '../../../store/selectors/selectors'
-import DropDownMenu from '../../dropDownMenu'
+import DropDownMenu from '../../DropDownMenu'
 import styles from './styles.module.scss'
 
 const UserButton = () => {

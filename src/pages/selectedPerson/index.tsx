@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import MediaQuery from 'react-responsive'
 import { useParams } from 'react-router-dom'
-import { LazyLoaderSvg } from '../../assets/svg/lazyLoaderSVG'
-import Facts from '../../components/facts'
-import Tabs from '../../components/tabs'
-import TabsLayout from '../../components/tabs/tabsLayout'
-import { convertTimeToDate } from '../../helpers/convertTimeToDate'
-import { loadMoviesByIdAsyncAction } from '../../store/reducers/moviesReducer/actions'
-import { loadSelectedPersonAsyncAction } from '../../store/reducers/selectedPersonReducer/actions'
+import LazyLoaderSvg from '../../assets/svg/LazyLoaderSvg'
+import Facts from '../../components/Facts'
+import Tabs from '../../components/Tabs'
+import TabsLayout from '../../components/Tabs/TabsLayout'
+import convertTimeToDate from '../../helpers/convertTimeToDate'
+import { loadMoviesByIdAsyncAction } from '../../store/reducers/movies/actions'
+import { loadSelectedPersonAsyncAction } from '../../store/reducers/selectedPerson/actions'
 import { changeThemeSelector, moviesSelector, selectedPersonSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
@@ -19,8 +19,8 @@ const SelectedPerson = () => {
     const person = useSelector(selectedPersonSelector)
     const movies = useSelector(moviesSelector)
     const dispatch = useDispatch()
-    const countFilms = Number(person.movies?.length) - 1;
-    const query = person.movies?.map((el) => `search=${el.id}&field=id`).join("&");
+    const countFilms = Number(person.movies?.length) - 1
+    const query = person.movies?.map((el) => `search=${el.id}&field=id`).join('&')
     const limit = countFilms + 1
 
     useEffect(() => {
@@ -32,42 +32,41 @@ const SelectedPerson = () => {
 
     const items = [
         {
-            title: "Карьера",
+            title: 'Карьера',
             value: person.profession?.map((el) => <p key={el.value}>{el.value}</p>),
             condition: person.profession,
         },
         {
-            title: "Всего фильмов",
+            title: 'Всего фильмов',
             value: countFilms,
             condition: countFilms,
         },
-        { title: "Возраст", value: person.age, condition: person.age },
+        { title: 'Возраст', value: person.age, condition: person.age },
         {
-            title: "Пол",
+            title: 'Пол',
             value: person.sex,
             condition: person.sex,
         },
         {
-            title: "Рост",
+            title: 'Рост',
             value: `${person.growth} см`,
             condition: person.growth,
         },
         {
-            title: "Дата рождения",
-            value: convertTimeToDate(person.birthday, "D MMMM YYYY"),
+            title: 'Дата рождения',
+            value: convertTimeToDate(person.birthday, 'D MMMM YYYY'),
             condition: person.birthday,
         },
         {
-            title: "Дата смерти",
-            value: convertTimeToDate(person.death, "D MMMM YYYY"),
+            title: 'Дата смерти',
+            value: convertTimeToDate(person.death, 'D MMMM YYYY'),
             condition: person.death,
         },
-    ];
-
+    ]
 
     const tabs = [
         {
-            txt: "Фильмы и сериалы",
+            txt: 'Фильмы и сериалы',
             content: (
                 <TabsLayout
                     personMovies={movies}
@@ -77,11 +76,11 @@ const SelectedPerson = () => {
             condition: movies?.length,
         },
         {
-            txt: "Факты",
+            txt: 'Факты',
             content: <Facts facts={person.facts} />,
             condition: person.facts?.length,
         },
-    ];
+    ]
     if (!person.id) {
         return <LazyLoaderSvg />
     }
@@ -95,7 +94,7 @@ const SelectedPerson = () => {
                         <h2 className={styles.movie_altname}>{person.enName}</h2>
                     </MediaQuery>
                     <div className={styles.img_container}>
-                        <img src={person.photo} alt="person poster" />
+                        <img src={person.photo} alt='person poster' />
                     </div>
                 </div>
                 <div className={styles.top_container}>

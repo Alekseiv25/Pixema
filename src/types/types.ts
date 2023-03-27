@@ -1,13 +1,13 @@
 export interface IBaseActionType {
-    type: string;
+    type: string
 }
 export interface IObjectStringList {
-    [key: string]: string[];
+    [key: string]: string[]
 }
 
 export interface ITokenDto {
-    access: string;
-    refresh: string;
+    access: string
+    refresh: string
 }
 
 export interface IUserType {

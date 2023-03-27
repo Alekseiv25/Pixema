@@ -1,5 +1,5 @@
-import { defaultValue, LOAD_BACKGROUND_MOVIE } from "./constants"
-import { BackgroundMovieAction, BackgroundMovieState } from "./types"
+import { defaultValue, LOAD_BACKGROUND_MOVIE } from './constants'
+import { BackgroundMovieAction, BackgroundMovieState } from './types'
 
 const backgroundMovieReducer = (state: BackgroundMovieState = defaultValue, action: BackgroundMovieAction): BackgroundMovieState => {
     switch (action.type) {

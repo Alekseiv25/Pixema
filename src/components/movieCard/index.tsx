@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { changeThemeSelector, favoritesMoviesSelector } from "../../store/selectors/selectors"
-import { IMovieProps } from "../../types/movieTypes"
+import { IMovieProps } from "../../types/movie"
 import SmallFavoriteButton from "../buttons/smallFavoriteButton"
-import Genres from "../genres"
-import Rating from "../rating"
+import Genres from "../Genres"
+import Rating from "../Rating"
 import styles from './styles.module.scss'
 
 const MovieCard = ({ docs }: IMovieProps) => {

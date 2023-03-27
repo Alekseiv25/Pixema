@@ -1,16 +1,16 @@
 import { combineReducers } from "redux";
-import { authReducer } from "./reducers/authReducer/reducer";
+import { authReducer } from "./reducers/auth/reducer";
 import backgroundMovieReducer from "./reducers/backgroundMovie/reducer";
-import favoriteReducer from "./reducers/favoritesReducer/reducer";
+import favoriteReducer from "./reducers/favorites/reducer";
 import { filterReducer } from "./reducers/filter/reducer";
-import moviesListReducer from "./reducers/moviesReducer/reducer";
-import registerReducer from "./reducers/registerReducer/reducer";
-import { resetReducer } from "./reducers/resetReducer/reducer";
-import selectedMovieReducer from "./reducers/selectedMovieReducer/reducer";
-import { selectedPersonReducer } from "./reducers/selectedPersonReducer/reducer";
+import moviesListReducer from "./reducers/movies/reducer";
+import registerReducer from "./reducers/register/reducer";
+import { resetReducer } from "./reducers/reset/reducer";
+import selectedMovieReducer from "./reducers/selectedMovie/reducer";
+import { selectedPersonReducer } from "./reducers/selectedPerson/reducer";
 
-import { themeReducer } from "./reducers/themeReducer/reducer";
-import burgerMenuReducer from "./reducers/toggleBurgerReducer/reducer";
+import { themeReducer } from "./reducers/theme/reducer";
+import burgerMenuReducer from "./reducers/toggleBurger/reducer";
 import toggleFilterReducer from "./reducers/toggleFilter/reducer";
 
 const rootReducer = combineReducers({

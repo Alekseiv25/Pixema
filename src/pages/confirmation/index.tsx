@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux"
-import { useLocation, useNavigate } from "react-router-dom"
-import LogoButton from "../../components/buttons/logoButton"
-import Submit from "../../components/submit"
-import { changeThemeSelector } from "../../store/selectors/selectors"
+import { useSelector } from 'react-redux'
+import { useLocation, useNavigate } from 'react-router-dom'
+import LogoButton from '../../components/buttons/logoButton'
+import Submit from '../../components/Submit'
+import { changeThemeSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 const Confirmation = () => {
@@ -20,7 +20,7 @@ const Confirmation = () => {
                     на вашей почте <b>{email}</b><br />
                     Пожалуйста, проверьте свою почту
                 </p>
-                <Submit value={"Домой"} />
+                <Submit value={'Домой'} />
             </form>
         </>
     )

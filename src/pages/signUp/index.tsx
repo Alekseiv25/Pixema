@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
 import LogoButton from '../../components/buttons/logoButton'
-import Input from '../../components/input'
-import Submit from '../../components/submit'
-import { registerUserAsyncAction } from '../../store/reducers/registerReducer/actions'
+import Input from '../../components/Input'
+import Submit from '../../components/Submit'
+import { registerUserAsyncAction } from '../../store/reducers/register/actions'
 import { changeThemeSelector, registerSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
@@ -61,9 +61,9 @@ const SignUp = () => {
         })
         if (result === true) {
             setFormError([])
-            const name: string = e.currentTarget.username.value;
-            const email: string = e.currentTarget.email.value;
-            const password: string = e.currentTarget.password.value;
+            const name: string = e.currentTarget.username.value
+            const email: string = e.currentTarget.email.value
+            const password: string = e.currentTarget.password.value
 
             dispatch(
                 registerUserAsyncAction(
@@ -80,13 +80,13 @@ const SignUp = () => {
     useEffect(() => {
         for (const key in register.errors) {
             if (key === 'username') {
-                const userNameErr: any = (register.errors[key]);
+                const userNameErr: any = (register.errors[key])
                 if (userNameErr) {
                     setNameApiError('Пользователь с этим именем уже существует')
                 } else { setNameApiError('') }
             } else if (key === 'email') {
                 const userEmailErr: any = (register.errors[key])
-                console.log(userEmailErr);
+                console.log(userEmailErr)
                 if (userEmailErr) {
                     setEmailApiError('Пользователь с этой почтой уже существует')
                 } else { setEmailApiError('') }

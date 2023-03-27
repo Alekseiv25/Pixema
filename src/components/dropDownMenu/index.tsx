@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { signOutAction } from '../../store/reducers/authReducer/actions'
+import { signOutAction } from '../../store/reducers/auth/actions'
 import styles from './styles.module.scss'
 
 interface IProps {
@@ -11,7 +11,6 @@ const DropDownMenu = (props: IProps) => {
     const { active } = props
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
     const handleLogOut = () => {
         dispatch(signOutAction())
     }

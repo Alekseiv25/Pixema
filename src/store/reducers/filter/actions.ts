@@ -1,8 +1,8 @@
-import { MODAL_FILTER } from "./constants"
-import { IFilterAction } from "./types"
+import { MODAL_FILTER } from './constants'
+import { IFilterAction } from './types'
 
-export const filterAction = (sortBy: string,  yearFrom: string ,
-    yearTo: string, ratingFrom: string , ratingTo: string,  genre: string,  ): IFilterAction => {
+export const filterAction = (sortBy: string, yearFrom: string,
+    yearTo: string, ratingFrom: string, ratingTo: string, genre: string,): IFilterAction => {
     return {
         type: MODAL_FILTER,
         sortBy: sortBy,

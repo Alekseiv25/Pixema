@@ -1,7 +1,7 @@
 import useOutsideClick from '@rooks/use-outside-click'
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { burgerMenuAction } from '../../../store/reducers/toggleBurgerReducer/actions'
+import { burgerMenuAction } from '../../../store/reducers/toggleBurger/actions'
 import { toggleBurgerSelector } from '../../../store/selectors/selectors'
 import styles from './styles.module.scss'
 

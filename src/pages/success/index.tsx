@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import LogoButton from '../../components/buttons/logoButton'
-import Submit from '../../components/submit'
+import Submit from '../../components/Submit'
 import styles from './styles.module.scss'
 
 const Success = () => {

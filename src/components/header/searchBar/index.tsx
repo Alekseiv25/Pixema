@@ -1,4 +1,4 @@
-import {  useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { changeThemeSelector } from '../../../store/selectors/selectors'
@@ -14,7 +14,6 @@ const SearchBar = () => {
         setSearchText(e.target.value)
     }
 
-
     const onClick = () => {
         navigate(`/search/${searchText}`,)
         setSearchText('')
@@ -23,13 +22,16 @@ const SearchBar = () => {
     return (
         <label className={theme ? `${styles.search} ${styles.light}` : `${styles.search}`}>
             <input
-                type="search"
-                name="search"
+                type='search'
+                name='search'
                 placeholder='Фильмы и сериалы'
                 value={searchText}
                 onChange={onChange}
             />
-            <SearchButton onClick={onClick} className={!searchText ? `${styles.disable}` : `${styles.button}`} />
+            <SearchButton
+                onClick={onClick}
+                className={!searchText ? `${styles.disable}` : `${styles.button}`}
+            />
             <FilterButton />
         </label>
     )

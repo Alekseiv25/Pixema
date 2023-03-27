@@ -7,8 +7,8 @@ import { filterAction } from '../../store/reducers/filter/actions'
 import { toggleFilterAction } from '../../store/reducers/toggleFilter/reducer'
 import { toggleFilterSelector } from '../../store/selectors/selectors'
 import CloseButton from '../buttons/closeButton'
-import Input from '../input'
-import Submit from '../submit'
+import Input from '../Input'
+import Submit from '../Submit'
 import styles from './styles.module.scss'
 
 const ModalFilter = () => {

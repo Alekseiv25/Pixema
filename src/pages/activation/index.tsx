@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { activateUserAsyncAction } from "../../store/reducers/registerReducer/actions";
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import { activateUserAsyncAction } from '../../store/reducers/register/actions'
 
 const Activation = () => {
     const navigate = useNavigate()
@@ -9,7 +9,7 @@ const Activation = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         if (uid && token) {
-            dispatch(activateUserAsyncAction(uid, token, () => navigate("/success")))
+            dispatch(activateUserAsyncAction(uid, token, () => navigate('/success')))
         }
     }, [navigate, token, uid, dispatch])
 

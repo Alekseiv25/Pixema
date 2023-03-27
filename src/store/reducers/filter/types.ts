@@ -1,4 +1,4 @@
-import { IBaseActionType } from "../../../types/types"
+import { IBaseActionType } from '../../../types/types'
 
 export interface IFilterState {
     sortBy: string

@@ -1,30 +1,29 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { LazyLoaderSvg } from '../../assets/svg/lazyLoaderSVG';
-import MovieCard from '../../components/movieCard';
-import { loadMoviesBySearchAsyncAction } from '../../store/reducers/moviesReducer/actions';
-import { moviesSelector } from '../../store/selectors/selectors';
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import LazyLoaderSvg from '../../assets/svg/LazyLoaderSvg'
+import MovieCard from '../../components/movieCard'
+import { loadMoviesBySearchAsyncAction } from '../../store/reducers/movies/actions'
+import { moviesSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 const Search = () => {
     const [limit, setLimit] = useState(10)
-    const [count, setCount] = useState(10);
-    // const count = 10
+    const [count, setCount] = useState(10)
     useEffect(() => {
         if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 1024) {
-            setLimit(8);
-            setCount(8);
+            setLimit(8)
+            setCount(8)
         } else if (document.documentElement.clientWidth <= 1024 && document.documentElement.clientWidth > 734) {
-            setLimit(9);
-            setCount(9);
+            setLimit(9)
+            setCount(9)
 
         } else if (document.documentElement.clientWidth < 735) {
-            setLimit(10);
-            setCount(10);
+            setLimit(10)
+            setCount(10)
         }
-    }, [limit, count]);
+    }, [limit, count])
     const { name } = useParams()
     const dispatch = useDispatch()
     const movies = useSelector(moviesSelector)

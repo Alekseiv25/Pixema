@@ -1,5 +1,5 @@
-import { defaultValue, MODAL_FILTER } from "./constants"
-import { IFilterAction, IFilterState } from "./types"
+import { defaultValue, MODAL_FILTER } from './constants'
+import { IFilterAction, IFilterState } from './types'
 
 export const filterReducer = (state: IFilterState = defaultValue, action: IFilterAction): IFilterState => {
     switch (action.type) {

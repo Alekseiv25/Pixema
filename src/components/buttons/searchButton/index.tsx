@@ -1,4 +1,4 @@
-import SearchIcoSvg from "../../../assets/svg/searchIcoSVG"
+import SearchIcoSvg from "../../../assets/svg/SearchIcoSvg"
 import styles from './styles.module.scss'
 
 interface ISearchButtonProps {

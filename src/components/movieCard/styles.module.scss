@@ -62,8 +62,6 @@
         }
     }
 
-
-
     .movie_poster {
         height: 357px;
         padding: 20px;
@@ -101,9 +99,10 @@
     }
 }
 
-
 .light {
-    h2, p {
+
+    h2,
+    p {
         color: $background-black !important
     }
 }

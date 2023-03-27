@@ -1,32 +1,34 @@
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { useDispatch } from "react-redux"
-import { Link } from "react-router-dom"
-import { todayDate } from "../../helpers/todayDate"
-import { loadBackgroundMovieAsyncAction } from "../../store/reducers/backgroundMovie/actions"
-import { backogroundMovieSelector } from "../../store/selectors/selectors"
-import AgeRating from "../ageRating"
-import Genres from "../genres"
-import Rating from "../rating"
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import  todayDate  from '../../helpers/todayDate'
+import { loadBackgroundMovieAsyncAction } from '../../store/reducers/backgroundMovie/actions'
+import { backogroundMovieSelector } from '../../store/selectors/selectors'
+import AgeRating from '../AgeRating'
+import Genres from '../Genres'
+import Rating from '../Rating'
 import styles from './styles.module.scss'
 
 const BackgroundMovie = () => {
     const dispatch = useDispatch()
     const movie = useSelector(backogroundMovieSelector)
     const [oldDate, setOldDate] = useState(
-        localStorage.getItem("oldDate") || `${todayDate() - 1}`
-    );
+        localStorage.getItem('oldDate') || `${todayDate() - 1}`
+    )
     useEffect(() => {
         if (oldDate !== `${todayDate()}`) {
             dispatch(loadBackgroundMovieAsyncAction())
-            setOldDate(`${todayDate()}`);
+            setOldDate(`${todayDate()}`)
         }
-        localStorage.setItem("oldDate", oldDate);
+        localStorage.setItem('oldDate', oldDate)
     }, [dispatch, oldDate])
 
     return (
         <>
-            <div className={styles.background_image_container} style={{ backgroundImage: movie.backdrop?.url ? `url(${movie.backdrop?.url})` : `url(${movie.poster?.url})` }}>
+            <div
+                className={styles.background_image_container}
+                style={{ backgroundImage: movie.backdrop?.url ? `url(${movie.backdrop?.url})` : `url(${movie.poster?.url})` }}>
                 <div className={styles.container_container}></div>
             </div>
             <div className={styles.background_info}>
@@ -46,7 +48,7 @@ const BackgroundMovie = () => {
                 </div>
             </div>
         </>
-
     )
 }
+
 export default BackgroundMovie

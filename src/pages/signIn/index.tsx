@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
 import LogoButton from '../../components/buttons/logoButton'
-import Input from '../../components/input'
-import Submit from '../../components/submit'
-import { getUserAsyncAction } from '../../store/reducers/authReducer/actions'
+import Input from '../../components/Input'
+import Submit from '../../components/Submit'
+import { getUserAsyncAction } from '../../store/reducers/auth/actions'
 import { authSelector, changeThemeSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
@@ -46,8 +46,8 @@ const SignIn = () => {
         })
         if (result === true) {
             setFormError([])
-            const email: string = e.currentTarget.email.value;
-            const password: string = e.currentTarget.password.value;
+            const email: string = e.currentTarget.email.value
+            const password: string = e.currentTarget.password.value
             dispatch(getUserAsyncAction(email, password, () => { navigate('/') }))
         } else {
             setFormError(result as ValidationError[])

@@ -1,13 +1,13 @@
-import Validator, { ValidationError } from "fastest-validator"
-import { FormEventHandler, useState } from "react"
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
-import { useNavigate, useParams } from "react-router-dom"
-import LogoButton from "../../components/buttons/logoButton"
-import Input from "../../components/input"
-import Submit from "../../components/submit"
-import { resetPasswordAsyncAction } from "../../store/reducers/resetReducer/actions"
-import { changeThemeSelector } from "../../store/selectors/selectors"
+import Validator, { ValidationError } from 'fastest-validator'
+import { FormEventHandler, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import LogoButton from '../../components/buttons/logoButton'
+import Input from '../../components/Input'
+import Submit from '../../components/Submit'
+import { resetPasswordAsyncAction } from '../../store/reducers/reset/actions'
+import { changeThemeSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
 const newPasswordValidationSchema = {
@@ -73,8 +73,10 @@ const NewPassword = () => {
                 />
                 {formError.map(err => (
                     <span key={err.field} className={styles.errors}>
-                        {err.message === `The 'password' field length must be greater than or equal to 8 characters long.` ? 'Пароль должен быть от 8 символов' : ''
-                            || err.message === `The 'password' field length must be less than or equal to 16 characters long.` ? 'Пароль должен быть до 16 символов' : ''}
+                        {err.message === `The 'password' field length must be greater than or equal to 8 characters long.`
+                            ? 'Пароль должен быть от 8 символов' : ''
+                                || err.message === `The 'password' field length must be less than or equal to 16 characters long.`
+                                ? 'Пароль должен быть до 16 символов' : ''}
                     </span>
                 ))}
                 <Input
@@ -85,10 +87,11 @@ const NewPassword = () => {
                 />
                 {formError.map(err => (
                     <span key={err.field} className={styles.errors}>
-                        {err.message === `The 'confirmpassword' field value must be equal to 'password' field value.` ? 'Пароли не совпадают' : ''}
+                        {err.message === `The 'confirmpassword' field value must be equal to 'password' field value.`
+                            ? 'Пароли не совпадают' : ''}
                     </span>
                 ))}
-                <Submit value={"Установить пароль"} />
+                <Submit value={'Установить пароль'} />
             </form>
         </>
     )

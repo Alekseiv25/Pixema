@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Logo from '../../../assets/svg/logo'
+import LogoSvg from '../../../assets/svg/LogoSvg'
 import { changeThemeSelector, toggleBurgerSelector } from '../../../store/selectors/selectors'
 import styles from './styles.module.scss'
 
@@ -17,7 +17,7 @@ const LogoButton = (props: IProps) => {
 
     return (
         <button onClick={() => navigate('/')} className={(theme ? `${className} ${styles.logo_button} ${location.pathname !== '/' && !burger ? `${styles.light}` : ''}` : `${styles.logo_button} ${className}`)}>
-            <Logo />
+            <LogoSvg />
         </button>
     )
 }

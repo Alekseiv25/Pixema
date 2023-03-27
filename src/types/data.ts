@@ -1,17 +1,17 @@
-import { IMovie, IMoviePerson } from "./movieTypes";
+import { IMovie, IMoviePerson } from './movie'
 
 export interface IData {
-    docs: IMovie[];
-    total?: number;
-    limit?: number;
-    page?: number;
-    pages?: number;
+    docs: IMovie[]
+    total?: number
+    limit?: number
+    page?: number
+    pages?: number
 }
 
 export interface IDataPerson {
-    docs: IMoviePerson[];
-    total?: number;
-    limit?: number;
-    page?: number;
-    pages?: number;
+    docs: IMoviePerson[]
+    total?: number
+    limit?: number
+    page?: number
+    pages?: number
 }

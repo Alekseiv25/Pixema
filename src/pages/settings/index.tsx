@@ -3,13 +3,12 @@ import { FormEventHandler, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import Input from '../../components/input'
-import Submit from '../../components/submit'
-import { patchEmailAsyncAction, patchPasswordAsyncAction, patchUserAsyncAction } from '../../store/reducers/authReducer/actions'
-import { ThemeColorAction } from '../../store/reducers/themeReducer/actions'
+import Input from '../../components/Input'
+import Submit from '../../components/Submit'
+import { patchEmailAsyncAction, patchPasswordAsyncAction, patchUserAsyncAction } from '../../store/reducers/auth/actions'
+import { ThemeColorAction } from '../../store/reducers/theme/actions'
 import { authSelector, changeThemeSelector, userSelector } from '../../store/selectors/selectors'
 import styles from './styles.module.scss'
-
 
 const settingsValidationSchema = {
     name: {
@@ -72,8 +71,8 @@ const Settings = () => {
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault()
-        const name: string = e.currentTarget.username.value;
-        const email: string = e.currentTarget.email.value;
+        const name: string = e.currentTarget.username.value
+        const email: string = e.currentTarget.email.value
         const oldpassword: string = e.currentTarget.oldpassword.value
         const newpassword: string = e.currentTarget.newpassword.value
         const changeNameResult = check(settingsValidationSchema, {
@@ -96,7 +95,7 @@ const Settings = () => {
             } else {
                 dispatch(patchUserAsyncAction(name, () => setNameSuccess('Имя изменено!')))
                 setNameError('')
-                console.log(auth.errors);
+                console.log(auth.errors)
             }
         } else {
             setFormNameError(changeNameResult as ValidationError[])
@@ -131,7 +130,7 @@ const Settings = () => {
     useEffect(() => {
         for (const key in auth.errors) {
             if (key === 'username') {
-                const userNameErr: any = (auth.errors[key]);
+                const userNameErr: any = (auth.errors[key])
                 if (userNameErr) {
                     setNameError('Пользователь с этим именем уже существует')
                 } else { setNameError('') }
@@ -254,7 +253,7 @@ const Settings = () => {
                             checked={!theme}
                             onChange={toggleTheme}
                         />
-                        <label htmlFor="toggle"></label>
+                        <label htmlFor='toggle'></label>
                     </div>
                 </div>
                 <div className={styles.settings_footer}>

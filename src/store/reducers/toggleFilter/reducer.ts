@@ -1,18 +1,14 @@
-import { IBaseActionType } from "../../../types/types"
+import { IBaseActionType } from '../../../types/types'
 
 export interface IBurgerState {
     isOpen: boolean
 }
-
-
 
 export const toggleFilterAction = (): IBaseActionType => {
     return {
         type: TOGGLE_FILTER,
     }
 }
-
-
 
 export const TOGGLE_FILTER = 'TOGGLE_FILTER'
 export const defaultValue: IBurgerState = { isOpen: false }
@@ -22,7 +18,6 @@ const toggleFilterReducer = (state: IBurgerState = defaultValue, action: IBaseAc
         case TOGGLE_FILTER:
             return {
                 isOpen: !state.isOpen
-                
             }
         default:
             return state
