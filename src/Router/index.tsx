@@ -14,7 +14,7 @@ import SelectedPerson from '../pages/SelectedPerson'
 import Settings from '../pages/Settings'
 import SignIn from '../pages/SignIn'
 import SignUp from '../pages/SignUp'
-import Success from '../pages/success'
+import Success from '../pages/Success'
 
 const Router = () => {
     return (
