@@ -53,7 +53,7 @@ export const personResponseById = (id: string | undefined): Promise<any> => {
 }
 
 export const moviesResponseBySearch = (limit: number, query: string | undefined): Promise<any> => {
-    const URL = `https://api.kinopoisk.dev/v1/movie?search=${query}&field=name&limit=${limit}`
+    const URL = `https://api.kinopoisk.dev/v1/movie?${query}&limit=${limit}`
     const request = new Request(URL, {
         method: 'GET',
         headers: {

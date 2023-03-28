@@ -20,6 +20,98 @@
         }
     }
 
+    .movies_buttons {
+        margin-top: 20px;
+        display: flex;
+        height: 56px;
+        justify-content: space-between;
+        max-width: 360px;
+
+        button {
+            width: 170px;
+            height: 50px;
+            background: #323537;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+            border: 0px;
+            align-items: center;
+            font-size: 16px;
+            display: flex;
+            padding: 15px;
+            color: white;
+            cursor: pointer;
+            justify-content: center;
+
+            &:hover {
+                background-color: #7b61ff;
+            }
+        }
+
+        ul {
+            width: 170px;
+            height: 50px;
+            background: #323537;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+
+            label {
+                align-self: center;
+                align-items: center;
+                font-size: 16px;
+                display: flex;
+                padding: 15px;
+                color: white;
+                cursor: pointer;
+                width: 100%;
+                justify-content: center;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: #7b61ff;
+                    border-radius: 10px;
+                }
+            }
+
+            .ulgenre {
+                display: none;
+                opacity: 0;
+                pointer-events: none;
+                font-size: 18px;
+                color: #f9f2f2;
+                cursor: pointer;
+                transition: 0.3s;
+                padding: 10px;
+                align-self: center;
+                width: 100%;
+                border-bottom: 1px solid grey;
+            }
+
+            .active {
+                background: #7b61ff;
+                color: white
+            }
+        }
+
+        .active_ul {
+            overflow: hidden;
+            height: 306px;
+            z-index: 9999;
+
+            li {
+                display: flex;
+                flex-direction: column;
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+
     .movies_footer {
         height: 56px;
         margin-top: 50px;
