@@ -21,15 +21,14 @@ const Filter = () => {
             setLimit(9)
             setCount(9)
 
-        } else if (document.documentElement.clientWidth < 735) {
+        } else {
             setLimit(10)
             setCount(10)
         }
-    }, [limit, count])
+    }, [])
 
     const dispatch = useDispatch()
     const filter = useSelector(filtermovieSelector)
-    console.log(filter.genre)
     const query = `sortField=${filter.sortBy}&sortType=${sortType}&year=${filter.yearFilterFrom}-${filter.yearFilterTo}${filter.genre !== '' ? `${`&genres.name=${filter.genre}`}` : ''}&rating.kp=${filter.ratingFilterFrom}-${filter.ratingFilterTo}${movieType !== '' ? `${`&type=${movieType}`}` : ''}`
     const movies = useSelector(moviesSelector)
     useEffect(() => {

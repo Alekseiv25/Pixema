@@ -37,7 +37,7 @@
         height: 358px;
         border-radius: 20px;
         background-color: rgba($background-black, 0);
-        transition: 0.3s ease;
+        transition: 0.3s ;
 
         @media (max-width: 1720px) {
             height: 279px;
@@ -56,7 +56,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        transition: 0.3s ease;
+        transition: 0.3s ;
         position: relative;
 
         @media (max-width: 1720px) {
@@ -78,7 +78,7 @@
             color: $white-color;
             font-weight: 700;
             line-height: 24px;
-            transition: 0.3s ease;
+            transition: 0.3s ;
             margin-bottom: 4px;
         }
 

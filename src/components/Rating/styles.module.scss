@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .rating {
     font-size: 18px;
     display: inline-flex;
@@ -8,10 +10,10 @@
     max-height: 28px;
     height: 100%;
     width: 100%;
-    color: #fff;
+    color: $white-color;
     z-index: 33;
     position: relative;
-    background-color: #f3a608;
+    background-color: $yellow-color;
     border-radius: 6px;
     pointer-events: none;
 
@@ -21,9 +23,9 @@
 }
 
 .rating_green {
-    background-color: #00a340;
+    background-color: $green-color;
 }
 
 .rating_red {
-    background-color: #f45d2d;
+    background-color: $orange-color
 }

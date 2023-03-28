@@ -1,4 +1,4 @@
-export const API_KEY = 'SWRR7B5-WFJMA7C-MFBZEYE-WWGRPW4'
+export const API_KEY = 'RD3R3VB-CWAM224-Q8CT51W-6PFHAFB'
 
 // 9DZ30QM-EDH406P-PWM0GFW-Q34DNX1
 // 'VGD10ZY-WNA4266-G8Q4TB8-NRRS4TA'
@@ -50,6 +50,6 @@ export const movieTypes = [
     { label: 'Фильмы', value: 'movie' },
     { label: 'Сериалы', value: 'tv-series' },
     { label: 'Аниме', value: 'anime' },
-    {label: 'Аниме-сериалы', value: 'animated-series'},
-    {label: 'Телепрограммы', value: 'tv-show'}
+    { label: 'Аниме-сериалы', value: 'animated-series' },
+    { label: 'Телепрограммы', value: 'tv-show' }
 ]

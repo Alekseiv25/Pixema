@@ -86,7 +86,6 @@ export const movieFilter = (query: string, limit: number): Promise<any> => {
             'X-API-KEY': `${API_KEY}`
         }
     })
-    console.log(request)
 
     return fetch(request)
         .then((response) => response.json())

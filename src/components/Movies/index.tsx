@@ -14,6 +14,9 @@ const Movies = () => {
     const [limit, setLimit] = useState(10)
     const [count, setCount] = useState(10)
     useEffect(() => {
+        dispatch(loadMoviesAsyncAction(limit))
+    }, [limit, dispatch])
+    useEffect(() => {
         if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 1024) {
             setLimit(8)
             setCount(8)
@@ -21,14 +24,12 @@ const Movies = () => {
             setLimit(9)
             setCount(9)
 
-        } else if (document.documentElement.clientWidth < 735) {
+        } else {
             setLimit(10)
             setCount(10)
         }
-    }, [limit, count])
-    useEffect(() => {
-        dispatch(loadMoviesAsyncAction(limit))
-    }, [limit, dispatch])
+    }, [])
+
     if (!movies.length) {
         return <LazyLoaderSvg />
     }

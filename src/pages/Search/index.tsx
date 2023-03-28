@@ -21,11 +21,11 @@ const Search = () => {
             setLimit(9)
             setCount(9)
 
-        } else if (document.documentElement.clientWidth < 735) {
+        } else {
             setLimit(10)
             setCount(10)
         }
-    }, [limit, count])
+    }, [])
     const { name } = useParams()
     const dispatch = useDispatch()
     const movies = useSelector(moviesSelector)

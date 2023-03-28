@@ -1,9 +1,11 @@
+@import '../../styles/variables.scss';
+
 .movies_container {
     max-width: 1610px;
     margin: 0 auto;
 
     h1 {
-        color: white;
+        color: $white-color;
         padding-top: 20px;
         padding-left: 20px;
     }
@@ -30,7 +32,7 @@
         button {
             width: 170px;
             height: 50px;
-            background: #323537;
+            background: $background-graphite;
             border-radius: 8px;
             margin-bottom: 15px;
             display: flex;
@@ -46,7 +48,7 @@
             justify-content: center;
 
             &:hover {
-                background-color: #7b61ff;
+                background-color: $primary-color;
             }
         }
 
@@ -66,14 +68,14 @@
                 font-size: 16px;
                 display: flex;
                 padding: 15px;
-                color: white;
+                color: $white-color;
                 cursor: pointer;
                 width: 100%;
                 justify-content: center;
                 transition: 0.3s;
 
                 &:hover {
-                    background-color: #7b61ff;
+                    background-color: $primary-color;
                     border-radius: 10px;
                 }
             }
@@ -83,18 +85,18 @@
                 opacity: 0;
                 pointer-events: none;
                 font-size: 18px;
-                color: #f9f2f2;
+                color: $white-color;
                 cursor: pointer;
                 transition: 0.3s;
                 padding: 10px;
                 align-self: center;
                 width: 100%;
-                border-bottom: 1px solid grey;
+                border-bottom: 1px solid $secondary-color;
             }
 
             .active {
-                background: #7b61ff;
-                color: white
+                background: $primary-color;
+                color: $white-color
             }
         }
 
@@ -131,12 +133,12 @@
             outline: none;
             color: #fff;
             cursor: pointer;
-            transition: 0.3s ease;
-            background-color: #7b61ff;
+            transition: 0.3s;
+            background-color: $primary-color;
             margin: 0 auto;
 
             &:hover {
-                background-color: #917cff;
+                background-color: $primary-color-2;
                 transform: perspective(100px) translateZ(3px);
             }
         }
@@ -149,5 +151,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: $white-color;
 }

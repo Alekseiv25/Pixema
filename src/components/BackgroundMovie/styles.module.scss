@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .background_image_container {
     width: 100%;
     height: 750px;
@@ -21,7 +23,7 @@
         height: 1000px;
         width: 100%;
         z-index: 46;
-        background-color: rgba($color: #000000, $alpha: 0.5);
+        background-color: rgba($color: $background-black, $alpha: 0.5);
     }
 }
 
@@ -38,7 +40,7 @@
     flex-direction: column;
 
     h1 {
-        color: #fff;
+        color: $white-color;
         font-size: 50px;
         margin: 0;
     }
@@ -89,7 +91,7 @@
 
     .background_description_block {
         display: flex;
-        color: #80858b;
+        color: $secondary-color;
         align-items: center;
         gap: 10px;
         padding-top: 10px;
@@ -105,7 +107,7 @@
 
     .background_description {
         padding-top: 20px;
-        color: #fff;
+        color: $white-color;
         font-size: 18px;
         width: 55%;
         line-height: 24px;
@@ -134,13 +136,13 @@
             padding: 16px 69px;
             font-weight: 600;
             line-height: 24px;
-            color: #fff;
+            color: $white-color;
             cursor: pointer;
-            transition: 0.3s ease;
-            background-color: #7b61ff;
+            transition: 0.3s ;
+            background-color: $primary-color;
 
             &:hover {
-                background-color: #917cff;
+                background-color: $primary-color-2;
                 transform: perspective(100px) translateZ(3px);
             }
         }

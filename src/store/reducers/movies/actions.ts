@@ -36,7 +36,6 @@ export const loadMoviesByfilterAsyncAction = (query: string, limit: number): any
     return (dispatch: GlobalDispatch): any => {
         movieFilter(query, limit).then((movies: IData) =>
             dispatch(loadMoviesAction(movies)))
-        console.log(movieFilter(query, limit))
     }
 }
 
