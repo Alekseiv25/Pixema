@@ -16,7 +16,11 @@ const LogoButton = (props: IProps) => {
     const burger = useSelector(toggleBurgerSelector)
 
     return (
-        <button onClick={() => navigate('/')} className={(theme ? `${className} ${styles.logo_button} ${location.pathname !== '/' && !burger ? `${styles.light}` : ''}` : `${styles.logo_button} ${className}`)}>
+        <button
+            onClick={() => navigate('/')}
+            className={(theme ? `${className} ${styles.logo_button} 
+                ${location.pathname !== '/' && !burger ? `${styles.light}` : ''}`
+                : `${styles.logo_button} ${className}`)}>
             <LogoSvg />
         </button>
     )

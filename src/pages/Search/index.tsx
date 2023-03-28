@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import LazyLoaderSvg from '../../assets/svg/LazyLoaderSvg'
 import MovieCard from '../../components/MovieCard'
 import { loadMoviesBySearchAsyncAction } from '../../store/reducers/movies/actions'
 import { moviesSelector } from '../../store/selectors/selectors'
@@ -31,8 +30,11 @@ const Search = () => {
         dispatch(loadMoviesBySearchAsyncAction(limit, name))
     }, [dispatch, limit, name])
     if (!movies.length) {
-        return <LazyLoaderSvg />
+        return (
+            <><h1 className={styles.notfound}>Нет фильмов по вашему запросу</h1></>
+        )
     }
+
     return (
         <div className={styles.movies_container}>
             <div className={styles.movies_block}>

@@ -86,7 +86,6 @@ const SignUp = () => {
                 } else { setNameApiError('') }
             } else if (key === 'email') {
                 const userEmailErr: any = (register.errors[key])
-                console.log(userEmailErr)
                 if (userEmailErr) {
                     setEmailApiError('Пользователь с этой почтой уже существует')
                 } else { setEmailApiError('') }

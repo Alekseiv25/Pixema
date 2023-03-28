@@ -45,8 +45,7 @@ export const refreshTokenAsyncAction = (): any => {
     return async (dispatch: GlobalDispatch, getState: () => GlobalState) => {
         const refreshToken = getState().auth.tokens?.refresh
         if (!refreshToken) {
-            console.log('No refreshToken')
-            throw new Error()
+            throw new Error('no refresh token')
         }
         const result = await fetchRefreshToken(refreshToken)
         if (result.ok) {
@@ -105,7 +104,6 @@ export const patchUserAsyncAction = (username: string, cb: () => void): any => {
             cb()
         } else if (result.status === 401) {
             await dispatch(refreshTokenAsyncAction())
-            console.log('refresh token')
             await dispatch(patchUserAsyncAction(username, cb))
         } else {
             dispatch(getErrorsAction(result.data))
@@ -128,7 +126,6 @@ export const patchEmailAsyncAction = (password: string, email: string, cb: () =>
             cb()
         } else if (result.status === 401) {
             await dispatch(refreshTokenAsyncAction())
-            console.log('refresh token')
             await dispatch(patchEmailAsyncAction(password, email, cb))
         } else {
             dispatch(getErrorsAction(result.data))
@@ -151,10 +148,9 @@ export const patchPasswordAsyncAction = (new_password: string, current_password:
             cb()
         } else if (result.status === 401) {
             await dispatch(refreshTokenAsyncAction())
-            console.log('refresh token')
             await dispatch(patchPasswordAsyncAction(current_password, new_password, cb))
         } else {
-            console.log('error')
+            throw new Error('error')
         }
     }
 }

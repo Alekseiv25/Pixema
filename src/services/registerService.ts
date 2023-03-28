@@ -44,7 +44,6 @@ export const activateUser = async (
     const request = new Request(url, params)
     const response = await fetch(request)
     const result = await (response.ok ? Promise.resolve(null) : response.json())
-    console.log(result, response.ok, response.status)
 
     return {
         ok: response.ok,

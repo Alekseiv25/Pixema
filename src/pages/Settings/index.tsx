@@ -95,7 +95,6 @@ const Settings = () => {
             } else {
                 dispatch(patchUserAsyncAction(name, () => setNameSuccess('Имя изменено!')))
                 setNameError('')
-                console.log(auth.errors)
             }
         } else {
             setFormNameError(changeNameResult as ValidationError[])

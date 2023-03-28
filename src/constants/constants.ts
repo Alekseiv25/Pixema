@@ -1,4 +1,4 @@
-export const API_KEY = 'ZAEXZKF-RYRM40B-QRXAV1N-F1JX56B'
+export const API_KEY = 'SWRR7B5-WFJMA7C-MFBZEYE-WWGRPW4'
 
 // 9DZ30QM-EDH406P-PWM0GFW-Q34DNX1
 // 'VGD10ZY-WNA4266-G8Q4TB8-NRRS4TA'
@@ -43,4 +43,13 @@ export const allGenres = [
     { label: 'Фантастика', value: 'фантастика' },
     { label: 'Фильмы-нуар', value: 'фильм-нуар' },
     { label: 'Фэнтези', value: 'фэнтези' },
+]
+
+export const movieTypes = [
+    { label: 'Сбросить фильтр', value: '' },
+    { label: 'Фильмы', value: 'movie' },
+    { label: 'Сериалы', value: 'tv-series' },
+    { label: 'Аниме', value: 'anime' },
+    {label: 'Аниме-сериалы', value: 'animated-series'},
+    {label: 'Телепрограммы', value: 'tv-show'}
 ]

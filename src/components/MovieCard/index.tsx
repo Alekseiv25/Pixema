@@ -20,7 +20,7 @@ const MovieCard = ({ docs }: IMovieProps) => {
                 <Rating rating={docs?.rating} />
                 {isFavoritePost(docs?.id) && <SmallFavoriteButton movie={docs!} />}
             </div>
-            <Link to={`/film/${docs?.id}`}>
+            <Link to={`/film/${docs?.id}`} >
                 <div
                     className={styles.movie_poster}
                     style={{ backgroundImage: `url(${docs?.poster?.url})` }}
@@ -32,9 +32,7 @@ const MovieCard = ({ docs }: IMovieProps) => {
                     <div className={styles.movie_footer}>
                         <Genres genres={docs?.genres} />
                     </div>
-
                 </div>
-
             </Link>
         </div>
     )

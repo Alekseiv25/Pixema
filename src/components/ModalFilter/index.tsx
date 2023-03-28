@@ -43,7 +43,6 @@ const ModalFilter = () => {
     const handleClick = () => {
         dispatch(filterAction(sortBy, stateYearFrom, stateYearTo, stateRatingFrom, stateRatingTo, stateGenre))
         navigate('/filter')
-        console.log(sortBy, stateYearFrom, stateYearTo, stateRatingFrom, stateRatingTo, stateGenre)
         dispatch(toggleFilterAction())
     }
 
