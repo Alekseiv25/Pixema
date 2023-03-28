@@ -253,8 +253,6 @@
             padding: 14px 0;
             max-width: 217px;
             white-space: nowrap;
-            font-size: 16px;
-            font-weight: 600;
             line-height: 24px;
             cursor: pointer;
             border: none;
@@ -281,6 +279,7 @@
 
             button,
             input {
+                padding: 16px 32px;
                 max-width: 434px;
                 width: 100%;
                 min-width: 240px;
